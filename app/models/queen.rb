@@ -1,0 +1,2 @@
+class Queen < ApplicationRecord
+end
