@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateTrivia from './CreateTrivia'
+import QueenTriviumIndex from './QueenTriviumIndex'
 
 const QueenShow = ({queen}) => {
 
@@ -8,8 +9,10 @@ const QueenShow = ({queen}) => {
             <div className="header">
                 <h1>{queen.drag_name}</h1>
             </div>
+
+            <div className="meta"> à la {queen.real_name} </div>
             <div className="meta">
-                {queen.trivia}
+                <QueenTriviumIndex queen = {queen} />
             </div>
             <CreateTrivia queen = {queen} />
         </div>

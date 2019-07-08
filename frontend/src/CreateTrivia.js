@@ -3,19 +3,18 @@ import { connect } from 'react-redux';
 import { addTrivia } from './actions/queenActions';
 
 class CreateTrivia extends Component {
-    state = { text: '' };
+    state = {content: '' };
 
     handleChange = event => {
-          this.setState({ text: event.target.value });
+          this.setState({ content: event.target.value});
     };
 
     handleSubmit = event => {
         event.preventDefault();
         this.props.addTrivia({
-          ...this.props.queen,
-          trivia: [...this.props.queen.trivia, this.state.text]
+          trivium: [{content: this.state.content, queen_id: "1"}]
         });
-        this.setState({ text: '' })
+        this.setState({content: '' })
     }
 
     render() {
@@ -23,14 +22,14 @@ class CreateTrivia extends Component {
             <div>
                 <form className="ui form"
                       onSubmit={event => this.handleSubmit(event)}>
-                      <div className="field">
-                        <label>create trivia:</label>
-                        <input
-                            type="text"
-                            onChange={event => this.handleChange(event)}
-                            value={this.state.text}/>
-                        <button type="submit" className="ui button">Submit</button>
+                      <div className="transparent field">
+                        <input  type="content" className="ui fluid icon input"
+                                onChange={event => this.handleChange(event)}
+                                value={this.state.content}
+                                placeholder="     ... type here to..."/>
+                        <button type="submit" className="ui fluid button">...add trivia</button>
                         </div>
+                        
                 </form>
             </div>
           );

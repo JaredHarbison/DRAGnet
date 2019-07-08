@@ -1,5 +1,6 @@
 class QueenSerializer < ActiveModel::Serializer
-    attributes :id, :real_name, :drag_name, :trivia, :social_media,  :image
+    attributes :id, :real_name, :drag_name, :social_media,  :image
+    has_many :trivium
   end
   
   ## add associations when needed
