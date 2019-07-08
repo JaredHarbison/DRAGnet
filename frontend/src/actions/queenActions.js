@@ -1,5 +1,3 @@
-const url = "http://localhost:5000/api";
-
 //async actions
 export const fetchQueens = () => {
     return (dispatch) => {
@@ -18,8 +16,8 @@ export const fetchQueens = () => {
 
 export const addTrivia = (queen) => {
     return dispatch => {
-        return fetch(`/queens/${queen.id}`, {
-            method: "put",
+        return fetch(`/queens/${queen.id}/trivium`, {
+            method: "post",
             headers: {
                 'Content-Type': 'application/json'
             },

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_003953) do
+ActiveRecord::Schema.define(version: 2019_07_05_215902) do
 
   create_table "queens", force: :cascade do |t|
     t.string "drag_name"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2019_07_03_003953) do
     t.string "image"
     t.string "video"
     t.string "social_media"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trivia", force: :cascade do |t|
+    t.integer "queen_id"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

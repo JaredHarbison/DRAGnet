@@ -14,8 +14,12 @@ Queen.create!(  drag_name: "Monét X Change",
                 challenge_wins: ["Season 10 - 0", "All Stars 4 - 3"],
                 entrance_quotes: ["Oh, don't mind me. I'm just here to sweep up the competition girl.", "Guess who's black in the house, bitch!"],
                 memorable_quotes: ["RuPaul, do you know why the cage bird sings?...Because Mariah Carey lost the key. (as Maya Angelou in the Snatch Game)", "Like dust, still I rise. (as Maya Angelou in the Snatch Game)" ],
-                farewell_messages: "Long Live the Sponge!!! MXC" "Chaching mother fucker cha ching",
-                trivia: ["Kevin spent his childhood in Saint Lucia, making Monét the second queen from the Caribbean to compete, the first being Vivacious from Jamaica.", "Her favorite cake is red velvet cake."],
                 image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/d/dd/MonetXChangeAS4.jpg/revision/latest/top-crop/width/192/height/192?cb=20190207030734",
                 video: "",
                 social_media: "https://www.instagram.com/monetxchange/?hl=en")#
+
+Trivium.create!( queen_id: 1, 
+                content: "Kevin spent his childhood in Saint Lucia, making Monét the second queen from the Caribbean to compete, the first being Vivacious from Jamaica.")
+
+Trivium.create!( queen_id: 1, 
+                content: "Her favorite cake is red velvet cake.")

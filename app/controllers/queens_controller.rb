@@ -10,7 +10,6 @@ class QueensController < ApplicationController
     end
   
     def update
-      #byebug
       if @queen.update(queen_params)
         render json: @queen
       else
@@ -21,7 +20,7 @@ class QueensController < ApplicationController
     private
   
       def queen_params
-        params.require(:queen).permit(:id, :drag_name, :real_name, :trivia, :image, :social_media)
+        params.require(:queen).permit(:id, :drag_name, :real_name, :image, :social_media, trivium_attributes: [:id, :queen_id, :content])
       end
   
   end
