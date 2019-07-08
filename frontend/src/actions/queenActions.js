@@ -14,9 +14,10 @@ export const fetchQueens = () => {
 }
 
 
-export const addTrivia = (queen) => {
-    return dispatch => {
-        return fetch(`/queens/${queen.id}/trivium`, {
+export const addTrivia = (queen, trivium) => {
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_QUEENS' })
+        return fetch(`/queens/${queen.id}/trivia`, {
             method: "post",
             headers: {
                 'Content-Type': 'application/json'
