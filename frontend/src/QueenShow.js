@@ -9,13 +9,15 @@ const QueenShow = ({queen}) => {
             <div className="header">
                 <h1>{queen.drag_name}</h1>
             </div>
-
+                <QueenTriviumIndex queen = {queen} />
             <div className="meta"> à la {queen.real_name} </div>
             <div className="meta">
-                <QueenTriviumIndex queen = {queen} />
+
             </div>
             <CreateTrivia queen = {queen} />
         </div>
   ) : (<p>loading...</p>)
 }
 export default QueenShow;
+//<QueenTriviumIndex queen = {queen} />
+//<h4>trivia here</h4>

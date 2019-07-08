@@ -15,20 +15,7 @@ ActiveRecord::Schema.define(version: 2019_07_05_215902) do
   create_table "queens", force: :cascade do |t|
     t.string "drag_name"
     t.string "real_name"
-    t.string "season"
-    t.string "ethnicity"
-    t.date "date_of_birth"
-    t.string "hometown"
-    t.string "current_city"
-    t.string "placement"
-    t.string "sent_home_by"
-    t.string "challenge_wins"
-    t.string "entrance_quotes"
-    t.string "memorable_quotes"
-    t.string "farewell_messages"
-    t.string "trivia"
     t.string "image"
-    t.string "video"
     t.string "social_media"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

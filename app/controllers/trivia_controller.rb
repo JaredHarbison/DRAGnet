@@ -1,5 +1,5 @@
 class TriviaController < ApplicationController
-  before_action :set_trivium, only: [:create, :show, :update, :destroy]
+  before_action :set_trivium, only: [:show, :update, :destroy]
 
   # GET /trivia
   def index
@@ -39,12 +39,13 @@ class TriviaController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_trivium
-      @trivium = Trivium.find(params[:id])
-    end
+    #def set_trivium
+    #  @trivium = Trivium.find(params[:id])
+    #end
 
     # Only allow a trusted parameter "white list" through.
     def trivium_params
-      params.fetch(:trivium, {})
+      params.require(:trivium).permit(:queen_id, :content)
+    #  params.fetch(:trivium, {})
     end
 end
