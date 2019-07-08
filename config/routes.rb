@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   scope :api do
-    resources :queens, only: [ :index, :show, :update, ] do
-      resources :trivia
+    resources :queens #do
+    resources :trivia
     end
   end
-end
+#end
+
+#, only: [ :index, :show, :update, ]

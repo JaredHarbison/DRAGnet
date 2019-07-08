@@ -1,15 +1,15 @@
 import React from 'react';
 
 const QueenTriviumIndex = ({ queen }) => {
-    const renderQueenTrivium = queen.trivium.map(trivia =>
-        <div key = {trivia.id}>
+    const renderQueenTrivium = queen.trivia.map(trivium =>
+        <div key = {trivium.id}>
             <div className="comment">
                 <div className="meta">
-                    <ul>{trivia.content}</ul>
+                    <ul>{trivium.content}</ul>
                 </div>
             </div>
         </div>
-    
+
   );
   return (
       <div>

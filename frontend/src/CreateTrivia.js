@@ -12,8 +12,7 @@ class CreateTrivia extends Component {
     handleSubmit = event => {
         event.preventDefault();
         this.props.addTrivia({
-          ...this.props.queen,
-          trivium:    {id: "7",
+          trivium:    {
                       queen_id: this.props.queen.id,
                       content: this.state.text}
         });
