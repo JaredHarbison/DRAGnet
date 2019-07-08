@@ -1,5 +1,5 @@
-class TriviumController < ApplicationController
-  before_action :set_trivium, only: [:show, :update, :destroy]
+class TriviaController < ApplicationController
+  before_action :set_trivium, only: [:create, :show, :update, :destroy]
 
   # GET /trivia
   def index
