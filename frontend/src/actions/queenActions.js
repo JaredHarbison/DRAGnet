@@ -13,12 +13,22 @@ export const fetchQueens = () => {
     }
 }
 
-
 export const addTrivia = (trivium) => {
     return (dispatch) => {
-        dispatch({ type: 'LOADING_QUEENS' })
         return fetch(`/trivia`, {
             method: "post",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(trivium)
+        })
+    }
+}
+
+export const deleteTrivium = (trivium) => {
+    return (dispatch) => {
+        return fetch(`trivia/${trivium.id}.json`, {
+            method: "delete",
             headers: {
                 'Content-Type': 'application/json'
             },
