@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addTrivia } from './actions/queenActions';
 
-class CreateTrivia extends Component {
+class CreateTrivium extends Component {
     state = {text: '' };
 
     handleChange = event => {
@@ -21,7 +21,7 @@ class CreateTrivia extends Component {
 
     render() {
         return(
-            <div>
+            <div className="ui fluid card">
                 <form className="ui form"
                       onSubmit={event => this.handleSubmit(event)}>
                       <div className="transparent field">
@@ -47,4 +47,4 @@ const mapDispatchToProps = dispatch => {
 export default connect (
     null,
     mapDispatchToProps
-)(CreateTrivia);
+)(CreateTrivium);
