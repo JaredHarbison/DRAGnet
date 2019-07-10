@@ -4,7 +4,7 @@ export const RECEIVE_TRIVIA = 'GET_TRIVIA'
 export const ADD_TRIVIA = 'ADD_TRIVIA';
 export const FETCH_QUEENS = 'FETCH_QUEENS';
 export const LOADING_QUEENS = 'LOADING_QUEENS';
-
+export const UPDATE_QUEEN_TRIVIA = 'UPDATE_QUEEN_TRIVIA';
 //async actions
 export const fetchQueens = () => {
     return (dispatch) => {
@@ -28,7 +28,10 @@ export const addTrivia = (trivium) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(trivium)
+        }).then(res => res.json()).then(data => {
+          dispatch({type:UPDATE_QUEEN_TRIVIA, payload: data})
         })
+
     };
 };
 
