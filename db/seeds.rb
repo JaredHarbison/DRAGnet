@@ -2,7 +2,9 @@
 #social_media: "https://www.instagram.com/monetxchange/?hl=en")#
 Queen.create!(
     drag_name: "Monét X Change",
-    real_name: "Kevin Bertin"
+    real_name: "Kevin Bertin",
+    social_media: "https://www.instagram.com/monetxchange/?hl=en",
+    image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/d/dd/MonetXChangeAS4.jpg/revision/latest/scale-to-width-down/333?cb=20190207030734"
 )
 Trivium.create!(
     queen_id: 1,
@@ -14,7 +16,9 @@ Trivium.create!(
 )
 Queen.create!(
     drag_name: "BenDeLaCreme",
-    real_name: "Benjamin Putnam"
+    real_name: "Benjamin Putnam",
+    social_media: "https://www.instagram.com/bendelacreme",
+    image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/0/01/BenDeLaCremeAS3.jpg/revision/latest?cb=20171021045348"
 )
 Trivium.create!(
     queen_id: 2,
@@ -26,7 +30,9 @@ Trivium.create!(
 )
 Queen.create!(
     drag_name: "Alyssa Edwards",
-    real_name: "Justin Dewayne Lee Johnson"
+    real_name: "Justin Dewayne Lee Johnson",
+    social_media: "https://www.photostags.com/user/alyssaedwards_1",
+    image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/e/ef/AlyssaAS2.jpg/revision/latest/scale-to-width-down/350?cb=20160617131459"
 )
 Trivium.create!(
     queen_id: 3,

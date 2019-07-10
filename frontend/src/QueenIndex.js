@@ -6,7 +6,7 @@ const QueenIndex = ({ dragQueens }) => {
         <div className="ui fluid cards">
             <div className="ui fluid card">
                 <div className="content">
-                    <img  src="https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/0/01/BenDeLaCremeAS3.jpg/revision/latest/scale-to-width-down/350?cb=20171021045348"
+                    <img  src={queen.image}
                           className="ui tiny left floated image"/>
                     <div className="header">
                           <Link key={queen.id}

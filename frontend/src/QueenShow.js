@@ -9,10 +9,12 @@ const QueenShow = ({queen}) => {
             <div className="content">
                 <div className="ui fluid card">
                     <div className="content">
-                        <img  src="https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/0/01/BenDeLaCremeAS3.jpg/revision/latest/scale-to-width-down/350?cb=20171021045348"
+                        <img  src={queen.image}
                               className="ui left floated small image"/>
                         <div  className="header"><h1>{queen.drag_name}</h1></div>
                         <div  className="meta"><h3>à la {queen.real_name}</h3></div>
+                        <div  className="meta"><h3>Social Media | {""}
+                              <a href={queen.social_media} target="_blank"><i class="instagram icon"></i></a></h3></div>
                     </div>
                 </div>
                 <QueenTrivia queen={queen}/>
