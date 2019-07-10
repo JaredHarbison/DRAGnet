@@ -1,5 +1,7 @@
-#image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/d/dd/MonetXChangeAS4.jpg/revision/latest/top-crop/width/192/height/192?cb=20190207030734",
-#social_media: "https://www.instagram.com/monetxchange/?hl=en")#
+
+Queen.destroy_all
+Trivium.destroy_all
+
 Queen.create!(
     drag_name: "Monét X Change",
     real_name: "Kevin Bertin",

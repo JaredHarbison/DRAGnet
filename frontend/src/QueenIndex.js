@@ -11,7 +11,7 @@ const QueenIndex = ({ dragQueens }) => {
                     <div className="header">
                           <Link key={queen.id}
                                 to={`/queens/${queen.id}`}>{queen.drag_name}</Link></div>
-                    <div className="meta">à la {queen.real_name} </div>
+                    <div className="meta">real name - {queen.real_name} </div>
                 </div>
             </div>
         </div>

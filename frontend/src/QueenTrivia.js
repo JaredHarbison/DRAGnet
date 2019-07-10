@@ -9,7 +9,6 @@ const QueenTrivia = ({ queen }) => {
             <div className="content">
                 <div class="ui feed">
                     <div className="meta">{trivium.content}</div>
-
                 </div>
             </div>
         </div>
@@ -21,7 +20,11 @@ const QueenTrivia = ({ queen }) => {
   );
 };
 
-export default QueenTrivia;
+const mapStateToProps = (state) => ({ trivia: state.trivia });
+
+export default connect(mapStateToProps)(QueenTrivia);
+
+
 //<div className="actions">
 //    <button className="ui mini icon button"><i aria-hidden="true" className="trash alternate outline icon"></i></button>
 //    <button className="ui mini icon button"><i aria-hidden="true" className="edit outline icon"></i></button>
