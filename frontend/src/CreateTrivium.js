@@ -12,6 +12,7 @@ class CreateTrivium extends Component {
     handleSubmit = event => {
         event.preventDefault();
         this.props.addTrivia({
+          queen: this.props.queen.id,
           trivium:    {
                       queen_id: this.props.queen.id,
                       content: this.state.text}
@@ -38,13 +39,16 @@ class CreateTrivium extends Component {
       }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addTrivia: queen => dispatch(addTrivia(queen))
-    };
-};
+const mapDispatchToProps = { addTrivia };
 
 export default connect (
     null,
     mapDispatchToProps
 )(CreateTrivium);
+
+
+//const mapDispatchToProps = dispatch => {
+//    return {
+//        addTrivia: queen => dispatch(addTrivia(queen))
+//    };
+//};
