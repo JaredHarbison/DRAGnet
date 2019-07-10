@@ -3,6 +3,13 @@ class CreateQueens < ActiveRecord::Migration[5.2]
     create_table :queens do |t|
       t.string :drag_name
       t.string :real_name
+      t.string :image
+      t.string :social_media
+      t.timestamps
+    end
+  end
+end
+
 #      t.string :season
 #      t.string :ethnicity
 #      t.date :date_of_birth
@@ -15,10 +22,4 @@ class CreateQueens < ActiveRecord::Migration[5.2]
 #      t.string :memorable_quotes
 #      t.string :farewell_messages
 #      t.string :trivia
-      t.string :image
 #      t.string :video
-      t.string :social_media
-      t.timestamps
-    end
-  end
-end

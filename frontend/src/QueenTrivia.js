@@ -9,10 +9,7 @@ const QueenTrivia = ({ queen }) => {
             <div className="content">
                 <div class="ui feed">
                     <div className="meta">{trivium.content}</div>
-                    <div className="actions">
-                        <button className="ui mini icon button"><i aria-hidden="true" className="trash alternate outline icon"></i></button>
-                        <button className="ui mini icon button"><i aria-hidden="true" className="edit outline icon"></i></button>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -25,7 +22,7 @@ const QueenTrivia = ({ queen }) => {
 };
 
 export default QueenTrivia;
-//<button class="ui icon button"><i aria-hidden="true" class="world icon"></i></button>
-//<i aria-hidden="true" className="trash alternate outline icon"></i>
-//<a className=""><i aria-hidden="true" className="trash alternate outline icon"></i></a>
-//<a className=""><i aria-hidden="true" className="edit outline icon"></i></a>
+//<div className="actions">
+//    <button className="ui mini icon button"><i aria-hidden="true" className="trash alternate outline icon"></i></button>
+//    <button className="ui mini icon button"><i aria-hidden="true" className="edit outline icon"></i></button>
+//</div>
