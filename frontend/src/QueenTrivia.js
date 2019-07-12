@@ -1,31 +1,19 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import {deleteTrivium } from './actions/queenActions';
-
+import QueenTrivium from './QueenTrivium'
 
 const QueenTrivia = ({ queen }) => {
     const renderQueenTrivium = queen.trivia.map(trivium =>
-        <div className="ui fluid card">
-            <div className="content">
-                <div class="ui feed">
-                    <div className="meta">{trivium.content}</div>
-                </div>
-            </div>
+        <QueenTrivium trivium={trivium}/>
+    );
+    return (
+        <div>
+            {renderQueenTrivium}
         </div>
-  );
-  return (
-      <div>
-          {renderQueenTrivium}
-      </div>
-  );
+    );
 };
 
 const mapStateToProps = (state) => ({ trivia: state.trivia });
 
 export default connect(mapStateToProps)(QueenTrivia);
 
-
-//<div className="actions">
-//    <button className="ui mini icon button"><i aria-hidden="true" className="trash alternate outline icon"></i></button>
-//    <button className="ui mini icon button"><i aria-hidden="true" className="edit outline icon"></i></button>
-//</div>
