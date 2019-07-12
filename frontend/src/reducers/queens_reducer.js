@@ -41,7 +41,7 @@ export default function queens_reducer(state = initialState, action) {
                               {...state.drag_queens[idx],
                                   trivia: [...state.drag_queens[idx].trivia, action.payload]
                               },
-                              ...state.drag_queens.slice(idx + 1)
+                              ...state.drag_queens.slice(idx - 1)
                               ]
                 }
 

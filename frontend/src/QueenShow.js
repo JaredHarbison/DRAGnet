@@ -9,12 +9,17 @@ const QueenShow = ({queen}) => {
             <div className="content">
                 <div className="ui fluid card">
                     <div className="content">
-                        <img  src={queen.image}
-                              className="ui left floated small image"/>
-                        <div  className="header"><h1>{queen.drag_name}</h1></div>
-                        <div  className="meta"><h5>({queen.real_name})</h5></div>
-                        <div  className="meta"><h3>Social Media | {""}
-                              <a href={queen.social_media} target="_blank"><i class="instagram icon"></i></a></h3></div>
+                        <img src={queen.image}
+                             alt={queen.drag_name}
+                             className="ui left floated small image"/>
+                        <div className="header"><h1>{queen.drag_name}</h1></div>
+                        <div className="meta"><h5>({queen.real_name})</h5></div>
+                        <div className="meta"><h3>Social Media | {""}
+                                <a  href={queen.social_media} 
+                                    rel="noopener noreferrer"
+                                    target="_blank"><i className="instagram icon"></i>
+                                </a></h3>
+                        </div>
                     </div>
                 </div>
                 <QueenTrivia queen={queen}/>

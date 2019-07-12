@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import React from 'react';
 import QueenTrivium from './QueenTrivium'
 
 const QueenTrivia = ({ queen }) => {
     const renderQueenTrivium = queen.trivia.map(trivium =>
-        <QueenTrivium trivium={trivium}/>
+        <QueenTrivium trivium={trivium} key={trivium.id}/>
     );
     return (
         <div>

@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 
 const QueenIndex = ({ dragQueens }) => {
     const renderQueens = dragQueens.map(queen =>
-        <div className="ui fluid cards">
+        <div className="ui fluid cards" key={queen.id}>
             <div className="ui fluid card">
                 <div className="content">
                     <img  src={queen.image}
+                          alt={queen.drag_name}
                           className="ui tiny left floated image"/>
                     <div className="header">
                           <Link key={queen.id}
