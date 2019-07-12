@@ -38,14 +38,14 @@ export const addTrivia = (trivium) => {
     };
 };
 
-export const deleteTrivium = (trivium) => {
+export const deleteTrivium = (id) => {
     return (dispatch) => {
-        return fetch(`/trivia/${trivium.id}`, {
+        return fetch(`/trivia/${id}`, {
             method: "delete",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(trivium)
+            body: JSON.stringify(id)
         }).then(res => res.json()).then(data => {
           dispatch({type:DELETE_QUEEN_TRIVIUM, payload: data})
         })
