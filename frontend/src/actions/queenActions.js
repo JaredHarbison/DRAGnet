@@ -1,4 +1,3 @@
-import history from '../history';
 
 export const RECEIVE_TRIVIA = 'GET_TRIVIA'
 export const ADD_TRIVIA = 'ADD_TRIVIA';
@@ -46,9 +45,9 @@ export const deleteTrivium = (trivium) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(trivium)
-        })//.then(res => res.json()).then(data => {
-          //dispatch({type:DELETE_QUEEN_TRIVIUM, payload: data})
-        //})
+        }).then(res => res.json()).then(data => {
+          dispatch({type:DELETE_QUEEN_TRIVIUM, payload: data})
+        })
 
     };
 };

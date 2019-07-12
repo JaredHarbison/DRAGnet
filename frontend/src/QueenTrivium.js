@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { deleteTrivium } from './actions/queenActions'
 
-
 class QueenTrivium extends Component {
 
     handleSubmit = event => {
@@ -15,9 +14,9 @@ class QueenTrivium extends Component {
 
     render() {
         return (
-            <div className="ui fluid card">
+            <div className="ui fluid card" key={this.props.trivium.id}>
                 <div className="content">
-                    <div class="ui feed">
+                    <div className="ui feed">
                         <div className="meta">{this.props.trivium.content}</div>
                             <button className="ui mini icon button"
                                     onClick={event => this.handleSubmit(event)}>
