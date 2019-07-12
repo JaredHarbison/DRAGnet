@@ -39,9 +39,9 @@ class TriviaController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    #def set_trivium
-    #  @trivium = Trivium.find(params[:id])
-    #end
+    def set_trivium
+      @trivium = Trivium.find(params[:id])
+    end
 
     # Only allow a trusted parameter "white list" through.
     def trivium_params
