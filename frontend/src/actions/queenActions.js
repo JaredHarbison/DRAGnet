@@ -38,17 +38,17 @@ export const addTrivia = (trivium) => {
     };
 };
 
-export const deleteTrivium = (id) => {
+export const deleteTrivium = (trivium) => {
     return (dispatch) => {
-        return fetch(`/trivia/${id}`, {
+        return fetch(`/trivia/${trivium.id}`, {
             method: "delete",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(id)
-        }).then(res => res.json()).then(data => {
-          dispatch({type:DELETE_QUEEN_TRIVIUM, payload: data})
-        })
+            body: JSON.stringify(trivium)
+        })//.then(res => res.json()).then(data => {
+          //dispatch({type:DELETE_QUEEN_TRIVIUM, payload: data})
+        //})
 
     };
 };

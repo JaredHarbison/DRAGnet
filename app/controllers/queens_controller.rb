@@ -20,7 +20,7 @@ class QueensController < ApplicationController
     private
   
       def queen_params
-        params.require(:queen).permit(:id, :drag_name, :real_name, :image, :social_media, trivium_attributes: [:id, :queen_id, :content])
+        params.require(:queen).permit(:id, :drag_name, :real_name, :image, :social_media)#, trivium_attributes: [:id, :queen_id, :content])
       end
   
   end
