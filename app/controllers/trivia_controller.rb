@@ -34,7 +34,8 @@ class TriviaController < ApplicationController
 
   # DELETE /trivia/1
   def destroy
-    @trivium.destroy
+    Trivium.find(params[:id]).destroy
+    #@trivium.destroy
   end
 
   private

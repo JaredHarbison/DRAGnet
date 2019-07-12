@@ -47,6 +47,7 @@ export default connect (
 )(CreateTrivium);
 
 
+
 //const mapDispatchToProps = dispatch => {
 //    return {
 //        addTrivia: queen => dispatch(addTrivia(queen))
