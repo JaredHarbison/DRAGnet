@@ -4,7 +4,7 @@ import QueenTrivium from './QueenTrivium'
 
 const QueenTrivia = ({ queen }) => {
     const renderQueenTrivium = queen.trivia.map(trivium =>
-        <QueenTrivium trivium={trivium} key={trivium.id}/>
+        <QueenTrivium queen={queen} trivium={trivium} key={trivium.id}/>
     );
     return (
         <div>
@@ -16,4 +16,3 @@ const QueenTrivia = ({ queen }) => {
 const mapStateToProps = (state) => ({ trivia: state.trivia });
 
 export default connect(mapStateToProps)(QueenTrivia);
-

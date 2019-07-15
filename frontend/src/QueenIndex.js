@@ -6,7 +6,7 @@ const QueenIndex = ({ dragQueens }) => {
         <div className="ui fluid cards" key={queen.id}>
             <div className="ui fluid card">
                 <div className="content">
-                    <img  src={queen.image}
+                    <img  src={queen.primary_image}
                           alt={queen.drag_name}
                           className="ui tiny left floated image"/>
                     <div className="header">

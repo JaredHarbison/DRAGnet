@@ -144,6 +144,7 @@ DEPENDENCIES
   active_model_serializers
   bootsnap (>= 1.1.0)
   byebug
+  i18n
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rack-cors

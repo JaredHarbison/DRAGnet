@@ -44,11 +44,9 @@ export const deleteTrivium = (trivium) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(trivium)
+            body: JSON.stringify({id: trivium.id})
         }).then(res => res.json()).then(data => {
           dispatch({type:DELETE_QUEEN_TRIVIUM, payload: data})
         })
-
     };
 };
-
