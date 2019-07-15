@@ -16,7 +16,14 @@ ActiveRecord::Schema.define(version: 2019_07_05_215902) do
     t.string "drag_name"
     t.string "real_name"
     t.string "image"
+    t.string "primary_image"
     t.string "social_media"
+    t.string "instagram"
+    t.string "twitter"
+    t.string "facebook"
+    t.string "youtube"
+    t.string "site"
+    t.string "imdb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

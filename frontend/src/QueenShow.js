@@ -9,15 +9,25 @@ const QueenShow = ({queen}) => {
             <div className="content">
                 <div className="ui fluid card">
                     <div className="content">
-                        <img src={queen.image}
+                        <img src={queen.primary_image}
                              alt={queen.drag_name}
                              className="ui left floated small image"/>
                         <div className="header"><h1>{queen.drag_name}</h1></div>
-                        <div className="meta"><h5>({queen.real_name})</h5></div>
                         <div className="meta"><h3>Social Media | {""}
-                                <a  href={queen.social_media} 
+                                <a  href={queen.instagram}
                                     rel="noopener noreferrer"
-                                    target="_blank"><i className="instagram icon"></i>
+                                    target="_blank">
+                                    <i className="instagram icon"></i>
+                                </a> | {""}
+                                <a  href={queen.facebook}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="facebook icon"></i>
+                                </a> | {""}
+                                <a  href={queen.twitter}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="twitter icon"></i>
                                 </a></h3>
                         </div>
                     </div>
@@ -29,3 +39,5 @@ const QueenShow = ({queen}) => {
   ) : (<p>loading...</p>)
 }
 export default QueenShow;
+
+//<div className="meta"><h5>({queen.real_name})</h5></div>
