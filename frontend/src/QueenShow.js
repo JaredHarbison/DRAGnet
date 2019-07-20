@@ -3,7 +3,6 @@ import CreateTrivium from './CreateTrivium'
 import QueenTrivia from './QueenTrivia'
 
 const QueenShow = ({queen}) => {
-
     return queen ? (
         <div className="ui fluid card">
             <div className="content">
@@ -29,6 +28,7 @@ const QueenShow = ({queen}) => {
                                     target="_blank">
                                     <i className="twitter icon"></i>
                                 </a></h3>
+                                {queen.real_name}
                         </div>
                     </div>
                 </div>
