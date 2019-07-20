@@ -5,6 +5,9 @@ class CreateQueens < ActiveRecord::Migration[5.2]
       t.string :real_name
       t.string :image
       t.string :primary_image
+      t.string :ethnicity 
+      t.string :hometown
+      t.string :current_city
       t.string :social_media
       t.string :instagram
       t.string :twitter
@@ -12,6 +15,7 @@ class CreateQueens < ActiveRecord::Migration[5.2]
       t.string :youtube
       t.string :site
       t.string :imdb
+      t.date :date_of_birth
       t.timestamps
     end
   end
