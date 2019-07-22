@@ -41,3 +41,4 @@ const QueenShow = ({queen}) => {
 export default QueenShow;
 
 //<div className="meta"><h5>({queen.real_name})</h5></div>
+//<div>{ do { if (x) <div />; } }</div>

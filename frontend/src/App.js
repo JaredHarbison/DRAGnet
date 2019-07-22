@@ -15,7 +15,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <NavBar />
+                <NavBar dragQueens={this.props.dragQueens}/>
                 <Route exact path="/"
                        render={() => (<h3>Welcome to DRAGnet!</h3>)} />
                 <Route path="/queens"
