@@ -3,6 +3,7 @@ Queen.destroy_all
 Trivium.destroy_all
 
 Queen.new.get_queens
+Trivium.new.get_trivia
 
 #Queen.create!(
 #    drag_name: "Monét X Change",

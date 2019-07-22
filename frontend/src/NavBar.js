@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => (
+const NavBar = ({dragQueens}) => (
     <div className="ui menu">
 
         <Link className="item" to="/"> DRAGnet </Link>
