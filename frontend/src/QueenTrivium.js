@@ -17,7 +17,7 @@ class QueenTrivium extends Component {
             <div className="ui fluid card" key={this.props.trivium.id}>
                 <div className="content">
                     <div className="ui feed">
-                        <div className="meta">{this.props.trivium.content}</div>
+                        <div className="meta">{this.props.trivium.id} - {this.props.trivium.content}</div>
                             <button className="ui mini icon button"
                                     onClick={event => this.handleSubmit(event)}>
                                 <i aria-hidden="true"

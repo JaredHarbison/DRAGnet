@@ -27,9 +27,12 @@ const QueenShow = ({queen}) => {
                                     rel="noopener noreferrer"
                                     target="_blank">
                                     <i className="twitter icon"></i>
-                                </a></h3>
-                                {queen.real_name}
-                        </div>
+                                </a></h3></div>
+                        <div className="meta"><h3>Real Name: {queen.real_name}</h3></div>
+                        <div className="meta"><h3>Date of Birth: {queen.date_of_birth}</h3></div>
+                        <div className="meta"><h3>Hometown: {queen.hometown}</h3></div>
+                        <div className="meta"><h3>Current City: {queen.current_city}</h3></div>
+
                     </div>
                 </div>
                 <QueenTrivia queen={queen}/>
