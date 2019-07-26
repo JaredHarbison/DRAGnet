@@ -2,6 +2,7 @@ import React from 'react';
 import CreateTrivium from './CreateTrivium'
 import QueenTrivia from './QueenTrivia'
 
+const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 const QueenShow = ({queen}) => {
     return queen ? (
         <div className="ui fluid card">
@@ -29,7 +30,7 @@ const QueenShow = ({queen}) => {
                                     <i className="twitter icon"></i>
                                 </a></h3></div>
                         <div className="meta"><h3>Real Name: {queen.real_name}</h3></div>
-                        <div className="meta"><h3>Date of Birth: {queen.date_of_birth}</h3></div>
+                        <div className="meta"><h3>Date of Birth: {new Date(queen.date_of_birth).toLocaleDateString('en-US', DATE_OPTIONS)}</h3></div>
                         <div className="meta"><h3>Hometown: {queen.hometown}</h3></div>
                         <div className="meta"><h3>Current City: {queen.current_city}</h3></div>
 
@@ -42,6 +43,9 @@ const QueenShow = ({queen}) => {
   ) : (<p>loading...</p>)
 }
 export default QueenShow;
-
+//{(new Date()).toLocaleDateString('en-US', DATE_OPTIONS)}
+//Unhandled Rejection (RangeError): Invalid time value
+//{new Intl.DateTimeFormat('en-US').format(queen.date_of_birth)}
+//(new Intl.DateTimeFormat('en-US').format(date));
 //<div className="meta"><h5>({queen.real_name})</h5></div>
 //<div>{ do { if (x) <div />; } }</div>
