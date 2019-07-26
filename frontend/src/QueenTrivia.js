@@ -3,7 +3,7 @@ import React from 'react';
 import QueenTrivium from './QueenTrivium'
 
 const QueenTrivia = ({ queen }) => {
-    const renderQueenTrivium = queen.trivia.map(trivium =>
+    const renderQueenTrivium = queen.trivia.slice(0, 10).map(trivium =>
         <QueenTrivium queen={queen} trivium={trivium} key={trivium.id}/>
     );
     return (
