@@ -13,11 +13,11 @@ const QueenIndexCards = ({ filteredQueens }) => {
                           className="ui tiny left floated image"/>
                     <div className="header">
                           <Link key={queen.id}
-                                to={`/queens/${queen.id}`}>{queen.drag_name}</Link></div>
-                    <div className="meta">real name - {queen.real_name} </div>
-                    <div className="meta"> hometown - {queen.hometown} </div>
-                    <div className="meta"> current city - {queen.current_city} </div>
-                    <div className="meta"> date of birth - {new Date(queen.date_of_birth).toLocaleDateString('en-US', DATE_OPTIONS)} </div>
+                                to={`/queens/${queen.id}`}>{queen.drag_name || "(click to add coming soon)" }</Link></div>
+                    <div className="meta">real name - {queen.real_name || "(click to add coming soon)" } </div>
+                    <div className="meta"> hometown - {queen.hometown || "(click to add coming soon)" } </div>
+                    <div className="meta"> current city - {queen.current_city || "(click to add coming soon)" } </div>
+                    <div className="meta"> date of birth - {new Date(queen.date_of_birth).toLocaleDateString('en-US', DATE_OPTIONS) || "(click to add coming soon)" } </div>
                 </div>
             </div>
         </div>

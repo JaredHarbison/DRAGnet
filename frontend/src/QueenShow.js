@@ -29,10 +29,10 @@ const QueenShow = ({queen}) => {
                                     target="_blank">
                                     <i className="twitter icon"></i>
                                 </a></h3></div>
-                        <div className="meta"><h3>Real Name: {queen.real_name}</h3></div>
-                        <div className="meta"><h3>Date of Birth: {new Date(queen.date_of_birth).toLocaleDateString('en-US', DATE_OPTIONS)}</h3></div>
-                        <div className="meta"><h3>Hometown: {queen.hometown}</h3></div>
-                        <div className="meta"><h3>Current City: {queen.current_city}</h3></div>
+                        <div className="meta"><h3>Real Name: {queen.real_name || "(click to add coming soon)" }</h3></div>
+                        <div className="meta"><h3>Date of Birth: {new Date(queen.date_of_birth).toLocaleDateString('en-US', DATE_OPTIONS) || "(click to add coming soon)" }</h3></div>
+                        <div className="meta"><h3>Hometown: {queen.hometown || "(click to add coming soon)" }</h3></div>
+                        <div className="meta"><h3>Current City: {queen.current_city || "(click to add coming soon)" }</h3></div>
 
                     </div>
                 </div>
