@@ -46,7 +46,7 @@ class TriviaController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def trivium_params
-      params.require(:trivium).permit(:queen_id, :content)
+      params.require(:trivium).permit(:id, :queen_id, :content)
     #  params.fetch(:trivium, {})
     end
 end

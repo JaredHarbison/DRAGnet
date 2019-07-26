@@ -14,7 +14,7 @@ const QueensPage = ({ match, dragQueens, filteredQueens }) => (
                             queen={dragQueens.find(q => q.id == routerProps.match.params.queenID)}/>}}/>
         </Switch>
         <QueenSearch dragQueens={dragQueens} />
-        
+
     </div>
 )
 

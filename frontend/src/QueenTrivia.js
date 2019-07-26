@@ -13,6 +13,6 @@ const QueenTrivia = ({ queen }) => {
     );
 };
 
-const mapStateToProps = (state) => ({ trivia: state.trivia });
-
-export default connect(mapStateToProps)(QueenTrivia);
+//const mapStateToProps = (state) => ({ trivia: state.trivia });
+//export default connect(mapStateToProps)(QueenTrivia);
+export default QueenTrivia;
