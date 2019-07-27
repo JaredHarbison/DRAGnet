@@ -9,17 +9,20 @@ export const DELETE_QUEEN_TRIVIUM = 'DELETE_QUEEN_TRIVIUM';
 
 //async actions
 export const fetchQueens = () => {
+  console.log("c")
     return (dispatch) => {
         dispatch({ type: LOADING_QUEENS })
         return fetch(`/queens`)
             .then(res => res.json())
             .then(jsonResponse => {
+              console.log("d")
                 dispatch({
                     type: FETCH_QUEENS,
                     payload: jsonResponse
                 })
             })
     }
+    console.log("e")
 }
 
 export const addTrivia = (trivium) => {
@@ -44,9 +47,9 @@ export const deleteTrivium = (trivium) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({id: trivium.id})
-        }).then(res => res.json()).then(data => {
-          dispatch({type:DELETE_QUEEN_TRIVIUM, payload: data})
-        })
+            body: JSON.stringify(trivium.id)
+        })//.then(res => res.text()).then(data => {
+        //  dispatch({type:DELETE_QUEEN_TRIVIUM, payload: data})
+      //}//)
     };
 };
