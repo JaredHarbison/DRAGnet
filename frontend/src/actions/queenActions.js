@@ -53,3 +53,7 @@ export const deleteTrivium = (trivium) => {
       //}//)
     };
 };
+
+export const updateQueen = (queen) => {
+  console.log("updateQueen")
+}
