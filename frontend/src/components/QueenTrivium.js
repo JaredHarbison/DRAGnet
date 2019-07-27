@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { deleteTrivium } from './actions/queenActions'
+import { deleteTrivium } from '../actions/queenActions'
 
 class QueenTrivium extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
         this.props.deleteTrivium({
+            queen: this.props.queen.id,
+            trivium:  { queen_id: this.props.queen.id },
             id: this.props.trivium.id,
-            trivium: this.props.trivium
           });
+          this.setState()
     }
 
     render() {
@@ -31,12 +33,26 @@ class QueenTrivium extends Component {
     };
 }
 
-//const mapStateToProps = (state) => ({ trivia: state.trivia,
-//                                      dragQueens: state.queens.drag_queens});
-
 const mapDispatchToProps = { deleteTrivium };
 
 export default connect(
   null,
   mapDispatchToProps
 )(QueenTrivium);
+
+
+//      id: this.props.trivium.id,
+//      trivium: this.props.trivium
+
+
+
+//handleSubmit = event => {
+//    event.preventDefault();
+//    this.props.addTrivia({
+//      queen: this.props.queen.id,
+//      trivium:    {
+//                  queen_id: this.props.queen.id,
+//                  content: this.state.text}
+//    });
+//    this.setState({ text: '' })
+//}

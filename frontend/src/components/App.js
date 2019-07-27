@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Route } from 'react-router-dom';
 import NavBar from './NavBar'
 import QueensPage from './QueensPage'
-import * as actions from './actions/queenActions.js'
+import * as actions from '../actions/queenActions.js'
 
 class App extends Component {
 

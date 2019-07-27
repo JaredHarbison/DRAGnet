@@ -27,11 +27,12 @@ class Queen < ApplicationRecord
         queen_youtube = queen_doc.xpath('//a[text()="YouTube"]').attribute('href')
         queen_site = queen_doc.xpath('//a[text()="Site"]').attribute('href')
         queen_imdb = queen_doc.xpath('//a[text()="IMDB Page"]').attribute('href')
+        queen_trivia = queen_doc.xpath('//*[@id="Trivia"]/following::*/li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
         Queen.create!(drag_name: queen_drag_name,
                     real_name: queen_real_name,
                     primary_image: queen_primary_image,
-                    date_of_birth: queen_date_of_birth, 
-                    hometown: queen_hometown, 
+                    date_of_birth: queen_date_of_birth,
+                    hometown: queen_hometown,
                     current_city: queen_current_city,
                     ethnicity: queen_ethnicity,
                     instagram: queen_instagram,
@@ -39,7 +40,8 @@ class Queen < ApplicationRecord
                     facebook: queen_facebook,
                     youtube: queen_youtube,
                     site: queen_site,
-                    imdb: queen_imdb)
+                    imdb: queen_imdb
+                  )
         end
       end
     end
