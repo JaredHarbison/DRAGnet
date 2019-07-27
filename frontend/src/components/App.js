@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { Route } from 'react-router-dom';
-import NavBar from './NavBar'
+import NavBar from './common/NavBar'
 import QueensPage from './QueensPage'
 import * as actions from '../actions/queenActions.js'
 
