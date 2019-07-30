@@ -10,17 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_05_215902) do
+ActiveRecord::Schema.define(version: 2019_07_30_171149) do
+
+  create_table "appearances", force: :cascade do |t|
+    t.integer "queen_id"
+    t.integer "season_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["queen_id"], name: "index_appearances_on_queen_id"
+    t.index ["season_id"], name: "index_appearances_on_season_id"
+  end
 
   create_table "queens", force: :cascade do |t|
     t.string "drag_name"
     t.string "real_name"
-    t.string "image"
     t.string "primary_image"
     t.string "ethnicity"
     t.string "hometown"
     t.string "current_city"
-    t.string "social_media"
     t.string "instagram"
     t.string "twitter"
     t.string "facebook"
@@ -32,9 +39,30 @@ ActiveRecord::Schema.define(version: 2019_07_05_215902) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "quotes", force: :cascade do |t|
+    t.integer "queen_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string "season_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "trivia", force: :cascade do |t|
     t.integer "queen_id"
     t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

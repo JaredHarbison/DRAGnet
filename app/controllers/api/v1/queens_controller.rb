@@ -1,4 +1,4 @@
-class QueensController < ApplicationController
+class Api::V1::QueensController < ApplicationController
 
     def index
       render json: Queen.all

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  scope :api do
-    resources :queens #do
-    resources :trivia
+  namespace :api do
+    namespace :v1 do
+      resources :appearances 
+      resources :queens
+      resources :seasons
+      resources :trivia
+      resources :quotes
     end
   end
-#end
-
-#, only: [ :index, :show, :update, ]
+  resources :users
+end

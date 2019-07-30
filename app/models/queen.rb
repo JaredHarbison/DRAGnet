@@ -1,6 +1,9 @@
 class Queen < ApplicationRecord
     has_many :trivia, dependent: :destroy
-    accepts_nested_attributes_for :trivia
+    has_many :quotes, dependent: :destroy
+    has_many :appearances
+    has_many :seasons, through: :appearances
+    accepts_nested_attributes_for :trivia, :quotes, :seasons, :appearances
 
     def get_queens
       index_url = "https://rupaulsdragrace.fandom.com/wiki/Category:Queens"
