@@ -3,14 +3,18 @@ import React, { Component } from 'react';
 import { deleteTrivium } from '../actions/queenActions'
 
 class QueenTrivium extends Component {
+    state = {};
 
     handleSubmit = event => {
         event.preventDefault();
         this.props.deleteTrivium({
-            queen: this.props.queen.id,
-            trivium:  { queen_id: this.props.queen.id },
-            id: this.props.trivium.id,
-          });
+          id: this.props.trivium.id,
+          queen: this.props.queen.id,
+          trivium: {
+              queen_id: this.props.queen.id,
+              id: this.props.trivium.id
+                    }
+        });
           this.setState()
     }
 
@@ -32,6 +36,7 @@ class QueenTrivium extends Component {
       );
     };
 }
+
 
 const mapDispatchToProps = { deleteTrivium };
 
