@@ -7,14 +7,13 @@ const QueensPage = ({ match, dragQueens, filteredQueens }) => (
     <div>
         <Switch>
             <Route exact path={match.url}
-                   render={() => (<h3>Please select a queen from the list...</h3>)} />
+                   render={routerProps => {
+                       return <QueenSearch dragQueens={dragQueens}/>}}/>
             <Route exact path={`${match.url}/:queenID`}
                    render={routerProps => {
                        return <QueenShow {...routerProps}
                             queen={dragQueens.find(q => q.id == routerProps.match.params.queenID)}/>}}/>
         </Switch>
-        <QueenSearch dragQueens={dragQueens} />
-
     </div>
 )
 
