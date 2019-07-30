@@ -45,11 +45,3 @@ export default connect (
     null,
     mapDispatchToProps
 )(CreateTrivium);
-
-
-
-//const mapDispatchToProps = dispatch => {
-//    return {
-//        addTrivia: queen => dispatch(addTrivia(queen))
-//    };
-//};

@@ -127,6 +127,7 @@ class QueenShow extends Component {
       ) : (<p>loading...</p>)
     }
   }
+  
 const mapDispatchToProps = { updateQueen };
 
 export default connect (
