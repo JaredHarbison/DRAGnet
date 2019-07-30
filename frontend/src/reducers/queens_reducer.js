@@ -1,4 +1,4 @@
-import { RECEIVE_TRIVIA, ADD_TRIVIA, LOADING_QUEENS, FETCH_QUEENS, UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM } from '../actions/queenActions';
+import { LOADING_QUEENS, FETCH_QUEENS, UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM } from '../actions/queenActions';
 
 const initialState = {
     loading: false,
@@ -10,12 +10,6 @@ export default function queens_reducer(state = initialState, action) {
     console.log(action)
     let idx
     switch (action.type) {
-
-      case RECEIVE_TRIVIA:
-      return { drag_queens: action.payload };
-
-      case ADD_TRIVIA:
-      return { drag_queens: action.payload };
 
       case LOADING_QUEENS:
       return Object.assign({}, state, { loading: true })
