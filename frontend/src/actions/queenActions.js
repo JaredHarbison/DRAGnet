@@ -2,6 +2,8 @@ export const FETCH_QUEENS = 'FETCH_QUEENS';
 export const LOADING_QUEENS = 'LOADING_QUEENS';
 export const UPDATE_QUEEN_TRIVIA = 'UPDATE_QUEEN_TRIVIA';
 export const DELETE_QUEEN_TRIVIUM = 'DELETE_QUEEN_TRIVIUM';
+export const UPDATE_QUEEN = 'UPDATE_QUEEN';
+export const FETCH_QUEEN = 'FETCH_QUEEN';
 
 
 //async actions
@@ -51,12 +53,17 @@ export const deleteTrivium = (trivium) => {
 
 export const updateQueen = (queen) => {
     return (dispatch) => {
-        return fetch(`/queens/1`, {
-            method: "patch",
+        return fetch(`/queens/${queen.id}`, {
+            method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(queen)
+        }).then(res => res.json()).then(data => {
+            dispatch({
+                    type: UPDATE_QUEEN, 
+                    payload: data})
         })
       }
 }
+

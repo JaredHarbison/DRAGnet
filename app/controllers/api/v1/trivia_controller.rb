@@ -19,6 +19,7 @@ class Api::V1::TriviaController < ApplicationController
     if @trivium.save
       render json: @trivium, status: :created, location: @trivium
     else
+      
       render json: @trivium.errors, status: :unprocessable_entity
     end
   end

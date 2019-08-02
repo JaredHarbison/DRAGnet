@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-class UpVote extends Component {
+class DownVote extends Component {
   state = {
     count: 0
   }
 
-  upVote = () => {
+  downVote = () => {
     let newCount = this.state.count + 1
     this.setState({
       count: newCount
@@ -16,8 +16,8 @@ class UpVote extends Component {
     return (
       <div>
         <button className="ui basic mini icon button"
-                onClick={this.upVote}>
-                <i class="thumbs up outline icon">{this.state.count}</i>
+                onClick={this.downVote}>
+                <i class="thumbs down outline icon">{this.state.count}</i>
         </button>
       </div>
     )
@@ -27,8 +27,5 @@ class UpVote extends Component {
 }
 
 
-//<i class="thumbs up outline icon"></i>
 
-
-
-export default UpVote
+export default DownVote

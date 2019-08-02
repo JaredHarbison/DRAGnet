@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { addTrivia } from '../actions/queenActions';
+import { addTrivia } from '../../actions/queenActions';
 
 class CreateTrivium extends Component {
-    state = {text: '' };
+    state = {text: '' , trivia: []};
 
     handleChange = event => {
           this.setState({ text: event.target.value });
@@ -39,9 +39,13 @@ class CreateTrivium extends Component {
       }
 };
 
+function mapStateToProps(state) {
+    return { state };
+};
+
 const mapDispatchToProps = { addTrivia };
 
 export default connect (
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(CreateTrivium);

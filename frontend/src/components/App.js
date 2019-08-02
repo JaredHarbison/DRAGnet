@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { Route } from 'react-router-dom';
 import NavBar from './common/NavBar'
-import QueensPage from './QueensPage'
+import QueensPage from '../components/queens/QueensPage'
 import * as actions from '../actions/queenActions.js'
 
 class App extends Component {
