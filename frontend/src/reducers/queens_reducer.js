@@ -1,4 +1,4 @@
-import { LOADING_QUEENS, FETCH_QUEENS, UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM } from '../actions/queenActions';
+import { LOADING_QUEENS, FETCH_QUEENS, UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM, UPDATE_QUEEN } from '../actions/queenActions';
 
 const initialState = {
     loading: false,
@@ -18,8 +18,9 @@ export default function queens_reducer(state = initialState, action) {
       return { loading: false, drag_queens: action.payload }
 
       case UPDATE_QUEEN_TRIVIA:
-      idx = state.drag_queens.indexOf(state.drag_queens.find(q => q.id === action.payload.queen_id))
-      return {...state,
+      idx = state.drag_queens.indexOf(state.drag_queens.find(q => q.id !== action.payload.queen_id))
+      console.log(idx);
+      return {...state, 
               drag_queens: [...state.drag_queens.slice(0, idx),
                             {...state.drag_queens[idx],
                                 trivia: [...state.drag_queens[idx].trivia, action.payload]
@@ -29,14 +30,22 @@ export default function queens_reducer(state = initialState, action) {
               }
 
       case DELETE_QUEEN_TRIVIUM:
-      idx = state.drag_queens.indexOf(state.drag_queens.find(queen => queen.id === action.payload.queen_id))
+      idx = state.drag_queens.indexOf(state.drag_queens.find(queen => queen.id !== action.payload.queen_id))
       return {...state,
               drag_queens: [...state.drag_queens.slice(0, idx),
                             {...state.drag_queens[idx],
                                 trivia: [...state.drag_queens[idx].trivia, action.payload]
                             },
-                            ...state.drag_queens.slice(idx + 1)
+                            ...state.drag_queens.slice(idx)
                             ]
+              }
+
+      case UPDATE_QUEEN:
+      idx = state.drag_queens.indexOf(state.drag_queens.find(q => q.id !== action.payload.queen_id))
+      return {...state, 
+              drag_queens: [...state.drag_queens.slice(0, idx), 
+                            {...state.drag_queens[idx]}, 
+                            ...state.drag_queens.slice(idx)]
               }
 
       default:

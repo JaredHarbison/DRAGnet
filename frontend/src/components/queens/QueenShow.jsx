@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import CreateTrivium from './CreateTrivium'
-import QueenTrivia from './QueenTrivia'
-import { updateQueen } from '../actions/queenActions'
+import CreateTrivium from '../trivia/CreateTrivium'
+import QueenTrivia from '../trivia/QueenTrivia'
+import { updateQueen } from '../../actions/queenActions'
 
 
 
 class QueenShow extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            real_name: '',
-            date_of_birth: '',
-            hometown: '',
-            current_city: '',
+            id: props.id, 
+            real_name: props.real_name,
+            date_of_birth: props.date_of_birth,
+            hometown: props.hometown,
+            current_city: props.current_city,
         };
     }
     handleRealNameChange = event => {
@@ -30,25 +31,15 @@ class QueenShow extends Component {
     };
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state)
         this.props.updateQueen(this.state);
-        this.setState({
-          queen_id: this.props.queen.id,
-          queen:
-                {id: this.props.queen.id,
-                real_name: this.state.real_name,
-                date_of_birth: this.state.date_of_birth,
-                hometown: this.state.hometown,
-                current_city: this.state.current_city}
-
-        })
+        this.setState()
     }
 
     render() {
         return this.props.queen ? (
             <div className="ui fluid card">
                 <div className="content">
-                    <div className="ui fluid card">
+                    <div className="ui fluid card" key={this.props.queen.id}>
                         <div className="content">
                             <img src={this.props.queen.primary_image}
                                  alt={this.props.queen.drag_name}
@@ -76,47 +67,57 @@ class QueenShow extends Component {
                                         <input className="meta"
                                                onChange={event =>
                                                     this.handleRealNameChange(event)}
-                                               value={this.state.real_name}
+                                               value={this.props.real_name}
                                                type="text"
                                                placeholder={this.props.queen.real_name ||
-                                                          "add missing info here" }/></div></div>
+                                                          "add missing info here" }/>
+                                    </div>
+                                </div>
                                 <div className="meta">
                                     <span>Date of Birth: </span>
                                     <div className="ui transparent input">
                                         <input className="meta"
                                                onChange={event =>
                                                     this.handleDateOfBirthChange(event)}
-                                               value={this.state.date_of_birth}
+                                               value={this.props.date_of_birth}
                                                type="text"
                                                placeholder={new Date(this.props.queen.date_of_birth)
                                                           .toLocaleDateString('en-US',
                                                           { weekday: 'short', year: 'numeric',
                                                           month: 'short', day: 'numeric' }) ||
-                                                          "add missing info here" }/></div></div>
+                                                          "add missing info here" }/>
+                                    </div>
+                                </div>
                                 <div className="meta">
                                     <span>Hometown: </span>
                                     <div className="ui transparent input">
                                         <input className="meta"
                                                onChange={event =>
                                                     this.handleHometownChange(event)}
-                                               value={this.state.hometown}
+                                               value={this.props.hometown}
                                                type="text"
                                                placeholder={this.props.queen.hometown ||
-                                                          "add missing info here" }/></div></div>
+                                                          "add missing info here" }/>
+                                    </div>
+                                </div>
                                 <div className="meta">
                                     <span>Current City: </span>
                                     <div className="ui transparent input">
                                         <input className="meta"
                                                onChange={event =>
                                                     this.handleCurrentCityChange(event)}
-                                               value={this.state.current_city}
+                                               value={this.props.current_city}
                                                type="text"
                                                placeholder={this.props.queen.current_city ||
-                                                          "add missing info here" }/></div></div>
-
-                                        <button type="submit"
-                                                className="ui basic fluid button">
-                                                    click to submit any changes</button>
+                                                          "add missing info here" }/>                                                      
+                                    </div>
+                                </div>
+                                <button className="ui fluid mini icon button"
+                                        type="submit">
+                                    <i aria-hidden="true" 
+                                       className="save outline icon">
+                                    </i> Save Any Changes
+                                </button>   
                             </form>
                         </div>
                     </div>
@@ -128,9 +129,16 @@ class QueenShow extends Component {
     }
   }
   
+function mapStateToProps(state, routerProps) {
+    return { id: routerProps.match.params.queenID };
+};
+  
 const mapDispatchToProps = { updateQueen };
 
 export default connect (
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(QueenShow);
+
+
+

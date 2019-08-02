@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { deleteTrivium } from '../actions/queenActions'
+import { deleteTrivium } from '../../actions/queenActions'
+import UpVote from '../common/UpVote';
+import DownVote from '../common/DownVote';
 
 class QueenTrivium extends Component {
     state = {};
@@ -24,12 +26,16 @@ class QueenTrivium extends Component {
                 <div className="content">
                     <div className="ui feed">
                         <div className="meta">{this.props.trivium.id} - {this.props.trivium.content}</div>
-                            <button className="ui mini icon button"
-                                    onClick={event => this.handleSubmit(event)}>
-                                <i aria-hidden="true"
-                                   className="trash alternate outline icon">
-                                </i>
-                            </button>
+                            <div className="ui buttons">
+                                <UpVote/>
+                                <DownVote/>
+                                <button className="ui basic mini icon button"
+                                        onClick={event => this.handleSubmit(event)}>
+                                    <i aria-hidden="true"
+                                    className="trash alternate outline icon">
+                                    </i>
+                                </button>
+                            </div>
                     </div>
                 </div>
             </div>
