@@ -51,8 +51,8 @@ const QueenIndexCards = ({ filteredQueens }) => {
                     <div className="meta">  {"born as "} {queen.real_name}
                                             {" in "}{queen.hometown 
                                                 || "(info needed)" } 
-                                            {" on "}{new Date(queen.date_of_birth).
-                                                toLocaleDateString('en-US', DATE_OPTIONS)} 
+                                            {" on "}{new Date(queen.date_of_birth)
+                                                .toLocaleDateString('en-US', DATE_OPTIONS)} 
                     </div>
                     <div className="meta">  {"(age and ethnicity are coming soon)"} 
                     </div>
