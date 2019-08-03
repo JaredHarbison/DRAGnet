@@ -17,7 +17,7 @@ class DownVote extends Component {
       <div>
         <button className="ui basic mini icon button"
                 onClick={this.downVote}>
-                <i class="thumbs down outline icon">{this.state.count}</i>
+                <i className="thumbs down outline icon">{this.state.count}</i>
         </button>
       </div>
     )
