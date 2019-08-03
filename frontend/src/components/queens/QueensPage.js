@@ -4,7 +4,7 @@ import QueenSearch from './QueenSearch';
 import QueenShow from './QueenShow';
 
 const QueensPage = ({ match, dragQueens, filteredQueens }) => (
-    <div>
+    <div className="ui fluid container">
         <Switch>
             <Route exact path={match.url}
                    render={routerProps => {
