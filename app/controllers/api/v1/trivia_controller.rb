@@ -24,6 +24,10 @@ class Api::V1::TriviaController < ApplicationController
     end
   end
 
+  def trivium_url(trivium)
+
+  end 
+
   # PATCH/PUT /trivia/1
   def update
     if @trivium.update(trivium_params)
