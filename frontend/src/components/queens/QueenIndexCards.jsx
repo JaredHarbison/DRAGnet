@@ -10,7 +10,7 @@ const QueenIndexCards = ({ filteredQueens }) => {
                     <Link key={queen.id} to={`/queens/${queen.id}`}>
                         <img  src={queen.primary_image}
                               alt={queen.drag_name}
-                              verticalAlign="middle"
+                              verticalalign="middle"
                               className="ui small left floated rounded image"/>
                     </Link>
                     <div className="header">{queen.drag_name}
@@ -57,12 +57,12 @@ const QueenIndexCards = ({ filteredQueens }) => {
                     <div className="meta">  {"(age and ethnicity are coming soon)"} 
                     </div>
                 </div>
-                    <div class="ui right floated mini buttons">
-                        <button class="ui button">Bio </button>
-                        <button class="ui button">Stats</button>
-                        <button class="ui button">Trivia</button>
-                        <button class="ui button">Quotes</button>
-                        <button class="ui button">Appearances</button>
+                    <div className="ui right floated mini buttons">
+                        <button className="ui button">Bio </button>
+                        <button className="ui button">Stats</button>
+                        <button className="ui button">Trivia</button>
+                        <button className="ui button">Quotes</button>
+                        <button className="ui button">Appearances</button>
                     </div>
             </div>
         </div>
