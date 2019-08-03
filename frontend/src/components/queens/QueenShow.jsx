@@ -46,21 +46,31 @@ class QueenShow extends Component {
                                  className="ui left floated small image"/>
                             <div className="header">
                                 <span><h1>{this.props.queen.drag_name}{"  "}</h1></span></div>
-                                <span className="meta"> Social Media:  </span>
-                                    <a  href={this.props.queen.instagram}
-                                        rel="noopener noreferrer"
-                                        target="_blank">
-                                        <i className="instagram icon"></i></a>
-                                    <a  href={this.props.queen.facebook}
-                                        rel="noopener noreferrer"
-                                        target="_blank">
-                                        <i className="facebook icon"></i></a>
-                                    <a  href={this.props.queen.twitter}
-                                        rel="noopener noreferrer"
-                                        target="_blank">
-                                        <i className="twitter icon"></i></a>
+                            <span className="meta"> Social Media:  </span>
+                                <a  href={this.props.queen.instagram}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="instagram icon"></i></a>
+                                <a  href={this.props.queen.facebook}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="facebook icon"></i></a>
+                                <a  href={this.props.queen.twitter}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="twitter icon"></i></a>
                             <form className="ui form"
                                   onSubmit={event => this.handleSubmit(event)}>
+                                <div className="meta">
+                                    <span>Seasons: </span>
+                                    <div className="ui transparent input">
+                                        <input className="meta"
+                                               onChange={event =>
+                                                    this.handleRealNameChange(event)}
+                                               type="text"
+                                               placeholder="COMING SOON"/>
+                                    </div>
+                                </div>
                                 <div className="meta">
                                     <span>Real Name: </span>
                                     <div className="ui transparent input">

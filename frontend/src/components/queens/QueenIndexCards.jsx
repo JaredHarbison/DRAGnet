@@ -1,24 +1,69 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 const QueenIndexCards = ({ filteredQueens }) => {
     const renderQueens = filteredQueens.map(queen =>
         <div className="ui fluid cards" key={queen.id}>
             <div className="ui fluid card">
                 <div className="content">
-                    <img  src={queen.primary_image}
-                          alt={queen.drag_name}
-                          className="ui tiny left floated image"/>
-                    <div className="header">
-                          <Link key={queen.id}
-                                to={`/queens/${queen.id}`}>{queen.drag_name || "(coming soon)" }</Link></div>
-                    <div className="meta">real name - {queen.real_name || "(coming soon)" } </div>
-                    <div className="meta"> hometown - {queen.hometown || "(coming soon)" } </div>
-                    <div className="meta"> current city - {queen.current_city || "(coming soon)" } </div>
-                    <div className="meta"> date of birth - {new Date(queen.date_of_birth).toLocaleDateString('en-US', DATE_OPTIONS) || "(coming soon)" } </div>
+                    <Link key={queen.id} to={`/queens/${queen.id}`}>
+                        <img  src={queen.primary_image}
+                              alt={queen.drag_name}
+                              verticalAlign="middle"
+                              className="ui small left floated rounded image"/>
+                    </Link>
+                    <div className="header">{queen.drag_name}
+                                            {" of "}{queen.current_city 
+                                                || "(info needed)" }
+                    </div>
+                    <span className="header"></span><div className="header">
+                                <a  href={queen.instagram}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="instagram icon"></i></a>
+                                <a  href={queen.facebook}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="facebook icon"></i></a>
+                                <a  href={queen.twitter}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="twitter icon"></i></a>
+                                <a  href={queen.youtube}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="youtube icon"></i></a>
+                                <a  href={queen.site}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="home icon"></i></a>
+                                <a  href={queen.imdb}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="imdb icon"></i></a>
+                                <a  href={queen.instagram}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <i className="wikipedia w icon"></i></a></div>
+                    <div className="meta">  {"(seasons and placement are coming soon)"}
+                    </div>
+                    <div className="meta">  {"born as "} {queen.real_name}
+                                            {" in "}{queen.hometown 
+                                                || "(info needed)" } 
+                                            {" on "}{new Date(queen.date_of_birth).
+                                                toLocaleDateString('en-US', DATE_OPTIONS)} 
+                    </div>
+                    <div className="meta">  {"(age and ethnicity are coming soon)"} 
+                    </div>
                 </div>
+                    <div class="ui right floated mini buttons">
+                        <button class="ui button">Bio </button>
+                        <button class="ui button">Stats</button>
+                        <button class="ui button">Trivia</button>
+                        <button class="ui button">Quotes</button>
+                        <button class="ui button">Appearances</button>
+                    </div>
             </div>
         </div>
   );
@@ -32,3 +77,5 @@ const QueenIndexCards = ({ filteredQueens }) => {
 export default QueenIndexCards;
 
 //<UpVote/>
+//<div className="meta"> hometown - {queen.hometown || "(info needed)" } </div>
+//<div className="meta"> current city - {queen.current_city || "(info needed)" } </div>
