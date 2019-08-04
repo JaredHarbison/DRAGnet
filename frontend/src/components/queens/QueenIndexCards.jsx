@@ -16,7 +16,7 @@ const QueenIndexCards = ({ filteredQueens }) => {
                     <div className="header">{queen.drag_name}
                                             {" of "}{queen.current_city 
                                                 || "(info needed)" }
-                    </div>
+                    </div><div class="ui divider"></div>
                     <span className="header"></span><div className="header">
                                 <a  href={queen.instagram}
                                     rel="noopener noreferrer"
@@ -46,6 +46,7 @@ const QueenIndexCards = ({ filteredQueens }) => {
                                     rel="noopener noreferrer"
                                     target="_blank">
                                     <i className="wikipedia w icon"></i></a></div>
+                                    <div class="ui divider"></div>
                     <div className="meta">  {"(seasons and placement are coming soon)"}
                     </div>
                     <div className="meta">  {"born as "} {queen.real_name}
@@ -54,16 +55,16 @@ const QueenIndexCards = ({ filteredQueens }) => {
                                             {" on "}{new Date(queen.date_of_birth)
                                                 .toLocaleDateString('en-US', DATE_OPTIONS)} 
                     </div>
-                    <div className="meta">  {"(age and ethnicity are coming soon)"} 
+                    <div className="meta">  {queen.age}{"(age and ethnicity are coming soon)"} 
                     </div>
+                <div className="ui secondary menu">
+                    <a href="/" className="ui item">Bio </a>
+                    <a href="/" className="ui item">Stats</a>
+                    <a href="/" className="ui item">Trivia</a>
+                    <a href="/" className="ui item">Quotes</a>
+                    <a href="/" className="ui item">Appearances</a>
                 </div>
-                    <div className="ui right floated mini buttons">
-                        <button className="ui button">Bio </button>
-                        <button className="ui button">Stats</button>
-                        <button className="ui button">Trivia</button>
-                        <button className="ui button">Quotes</button>
-                        <button className="ui button">Appearances</button>
-                    </div>
+                </div>
             </div>
         </div>
   );

@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_171149) do
     t.string "site"
     t.string "imdb"
     t.date "date_of_birth"
+    t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

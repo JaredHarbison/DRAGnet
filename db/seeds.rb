@@ -1,3 +1,48 @@
+Season.create!(
+    season_name: "Season 1",
+)#1
+Season.create!(
+    season_name: "Season 2",
+)#2
+Season.create!(
+    season_name: "Season 3",
+)#3
+Season.create!(
+    season_name: "Season 4",
+)#4
+Season.create!(
+    season_name: "All Stars 1",
+)#5
+Season.create!(
+    season_name: "Season 5",
+)#6
+Season.create!(
+    season_name: "Season 6",
+)#7
+Season.create!(
+    season_name: "Season 7",
+)#8
+Season.create!(
+    season_name: "Season 8",
+)#9
+Season.create!(
+    season_name: "All Stars 2",
+)#10
+Season.create!(
+    season_name: "Season 9",
+)#11
+Season.create!(
+    season_name: "All Stars 3",
+)#12
+Season.create!(
+    season_name: "Season 10",
+)#13
+Season.create!(
+    season_name: "All Stars 4",
+)#14
+Season.create!(
+    season_name: "Season 11",
+)#15
 
 Queen.destroy_all
 Trivium.destroy_all
