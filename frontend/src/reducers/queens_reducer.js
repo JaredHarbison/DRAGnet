@@ -19,8 +19,6 @@ export default function queens_reducer(state = initialState, action) {
 
       case UPDATE_QUEEN_TRIVIA:
       idx = state.drag_queens.indexOf(state.drag_queens.find(q => q.id == action.payload.queen_id))
-      console.log(idx);
-      console.log(action.payload);
       return {...state, 
               drag_queens: [...state.drag_queens.slice(0, idx),
                             {...state.drag_queens[idx],
@@ -32,6 +30,9 @@ export default function queens_reducer(state = initialState, action) {
 
       case DELETE_QUEEN_TRIVIUM:
       idx = state.drag_queens.indexOf(state.drag_queens.find(queen => queen.id !== action.payload.queen_id))
+      console.log(state.trivium)
+      console.log(action.payload.queen_id)
+      console.log(...state.drag_queens[idx].trivia)
       return {...state,
               drag_queens: [...state.drag_queens.slice(0, idx),
                             {...state.drag_queens[idx],

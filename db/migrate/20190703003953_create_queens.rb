@@ -14,6 +14,7 @@ class CreateQueens < ActiveRecord::Migration[5.2]
       t.string :site
       t.string :imdb
       t.date :date_of_birth
+      t.integer :age
       t.timestamps
     end
   end
