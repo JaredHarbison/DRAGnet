@@ -9,6 +9,7 @@ const initialState = {
 export default function queens_reducer(state = initialState, action) {
     console.log(action)
     let idx
+    let tidx
     switch (action.type) {
 
       case LOADING_QUEENS:
@@ -30,13 +31,13 @@ export default function queens_reducer(state = initialState, action) {
 
       case DELETE_QUEEN_TRIVIUM:
       idx = state.drag_queens.indexOf(state.drag_queens.find(queen => queen.id !== action.payload.queen_id))
-      console.log(state.trivium)
-      console.log(action.payload.queen_id)
-      console.log(...state.drag_queens[idx].trivia)
+      tidx = state.drag_queens.indexOf(state.drag_queens.find(trivium => trivium.id !== action.payload.trivium_id))
       return {...state,
               drag_queens: [...state.drag_queens.slice(0, idx),
                             {...state.drag_queens[idx],
-                                trivia: [...state.drag_queens[idx].trivia, action.payload]
+                                trivia: [...state.drag_queens[idx].trivia.slice(0, tidx), 
+                                         
+                                         ...state.drag_queens[idx].trivia.slice(tidx)]
                             },
                             ...state.drag_queens.slice(idx)
                             ]
@@ -54,3 +55,5 @@ export default function queens_reducer(state = initialState, action) {
       return state
     }
 }
+//state.drag_queens[idx].trivia.filter((trivium) => trivium[tidx] !== tidx)]
+                                         
