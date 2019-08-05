@@ -16,7 +16,7 @@ const QueenIndexCards = ({ filteredQueens }) => {
                     <div className="header">{queen.drag_name}
                                             {" of "}{queen.current_city 
                                                 || "(info needed)" }
-                    </div><div class="ui divider"></div>
+                    </div><div className="ui divider"></div>
                     <span className="header"></span><div className="header">
                                 <a  href={queen.instagram}
                                     rel="noopener noreferrer"
@@ -46,7 +46,7 @@ const QueenIndexCards = ({ filteredQueens }) => {
                                     rel="noopener noreferrer"
                                     target="_blank">
                                     <i className="wikipedia w icon"></i></a></div>
-                                    <div class="ui divider"></div>
+                                    <div className="ui divider"></div>
                     <div className="meta">  {"(seasons and placement are coming soon)"}
                     </div>
                     <div className="meta">  {"born as "} {queen.real_name}

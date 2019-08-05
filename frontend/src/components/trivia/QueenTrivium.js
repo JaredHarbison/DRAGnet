@@ -23,8 +23,8 @@ class QueenTrivium extends Component {
     render() {
         return (
             <div className="ui fluid card" key={this.props.trivium.id}>
-                <div className="content">
-                    <div className="ui feed">
+                <div className="content" key={this.props.trivium.id}>
+                    <div className="ui feed" key={this.props.trivium.id}>
                         <div className="meta">{this.props.trivium.id} - {this.props.trivium.content}</div>
                             <div className="ui buttons">
                                 <UpVote/>
