@@ -37,7 +37,7 @@ export default function queens_reducer(state = initialState, action) {
                             {...state.drag_queens[idx],
                                 trivia: [...state.drag_queens[idx].trivia.slice(0, tidx), 
                                          
-                                         ...state.drag_queens[idx].trivia.slice(tidx)]
+                                         ...state.drag_queens[idx].trivia.slice(tidx + 1, tidx)]
                             },
                             ...state.drag_queens.slice(idx)
                             ]
