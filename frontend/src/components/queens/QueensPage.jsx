@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import QueenSearch from './QueenSearch';
 import QueenShow from './QueenShow';
 
-const QueensPage = ({ match, dragQueens, filteredQueens }) => (
+const QueensPage = ({ match, dragQueens }) => (
     <div className="ui fluid container">
         <Switch>
             <Route exact path={match.url}
