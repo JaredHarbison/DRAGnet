@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+import BiographyModal from './BiographyModal';
+
 const QueenIndexCards = ({ filteredQueens }) => {
     const renderQueens = filteredQueens.map(queen =>
         <div className="ui fluid cards" key={queen.id}>
@@ -13,57 +14,40 @@ const QueenIndexCards = ({ filteredQueens }) => {
                               verticalalign="middle"
                               className="ui small left floated rounded image"/>
                     </Link>
-                    <div className="header">{queen.drag_name}
-                                            {" of "}{queen.current_city 
-                                                || "(info needed)" }
-                    </div><div className="ui divider"></div>
-                    <span className="header"></span><div className="header">
-                                <a  href={queen.instagram}
-                                    rel="noopener noreferrer"
-                                    target="_blank">
-                                    <i className="instagram icon"></i></a>
-                                <a  href={queen.facebook}
-                                    rel="noopener noreferrer"
-                                    target="_blank">
-                                    <i className="facebook icon"></i></a>
-                                <a  href={queen.twitter}
-                                    rel="noopener noreferrer"
-                                    target="_blank">
-                                    <i className="twitter icon"></i></a>
-                                <a  href={queen.youtube}
-                                    rel="noopener noreferrer"
-                                    target="_blank">
-                                    <i className="youtube icon"></i></a>
-                                <a  href={queen.site}
-                                    rel="noopener noreferrer"
-                                    target="_blank">
-                                    <i className="home icon"></i></a>
-                                <a  href={queen.imdb}
-                                    rel="noopener noreferrer"
-                                    target="_blank">
-                                    <i className="imdb icon"></i></a>
-                                <a  href={queen.instagram}
-                                    rel="noopener noreferrer"
-                                    target="_blank">
-                                    <i className="wikipedia w icon"></i></a></div>
-                                    <div className="ui divider"></div>
-                    <div className="meta">  {"(seasons and placement are coming soon)"}
-                    </div>
-                    <div className="meta">  {"born as "} {queen.real_name}
-                                            {" in "}{queen.hometown 
-                                                || "(info needed)" } 
-                                            {" on "}{new Date(queen.date_of_birth)
-                                                .toLocaleDateString('en-US', DATE_OPTIONS)} 
-                    </div>
-                    <div className="meta">  {queen.age}{"(age and ethnicity are coming soon)"} 
-                    </div>
-                <div className="ui secondary menu">
-                    <a href="/" className="ui item">Bio </a>
-                    <a href="/" className="ui item">Stats</a>
-                    <a href="/" className="ui item">Trivia</a>
-                    <a href="/" className="ui item">Quotes</a>
-                    <a href="/" className="ui item">Appearances</a>
-                </div>
+                    <div className="header">{queen.drag_name}{" of Season X"}</div>
+                    <div className="ui divider"></div>
+                    <span className="header"></span>
+                        <div className="header">
+                            <a  href={queen.instagram}
+                                rel="noopener noreferrer"
+                                target="_blank">
+                                <i className="instagram icon"></i></a>
+                            <a  href={queen.facebook}
+                                rel="noopener noreferrer"
+                                target="_blank">
+                                <i className="facebook icon"></i></a>
+                            <a  href={queen.twitter}
+                                rel="noopener noreferrer"
+                                target="_blank">
+                                <i className="twitter icon"></i></a>
+                            <a  href={queen.youtube}
+                                rel="noopener noreferrer"
+                                target="_blank">
+                                <i className="youtube icon"></i></a>
+                            <a  href={queen.site}
+                                rel="noopener noreferrer"
+                                target="_blank">
+                                <i className="home icon"></i></a>
+                            <a  href={queen.imdb}
+                                rel="noopener noreferrer"
+                                target="_blank">
+                                <i className="imdb icon"></i></a>
+                            <a  href={queen.instagram}
+                                rel="noopener noreferrer"
+                                target="_blank">
+                                <i className="wikipedia w icon"></i></a></div>
+                            <div className="ui divider"></div>
+                    <BiographyModal queen={queen}/>
                 </div>
             </div>
         </div>

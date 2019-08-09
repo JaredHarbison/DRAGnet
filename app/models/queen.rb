@@ -19,7 +19,6 @@ class Queen < ApplicationRecord
         queen_real_name ||= queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(3) > div").text.split(' ').join(' ')
         queen_primary_image = queen_doc.css('#mw-content-text > aside > figure > a').attribute('href') || queen_doc.css('#pi-tab-0 > figure > a > img').attribute('src')
         queen_date_of_birth = queen_doc.xpath('//*[@data-source="birth year"]/div[@class="pi-data-value pi-font"]/text()').text[0..-3]
-        queen_age = ((Time.now - (Date.parse(queen_doc.xpath('//*[@data-source="birth year"]/div[@class="pi-data-value pi-font"]/text()'))).to_time)/31557600).floor
         queen_ethnicity = queen_doc.xpath('//*[@data-source="Ethnicity"]/div[@class="pi-data-value pi-font"]/text()').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
         variable_queen_birthplace = queen_doc.xpath('//*[@data-source="Birthplace"]/div[@class="pi-data-value pi-font"]/text()').text
         variable_queen_hometown = queen_doc.xpath('//*[@data-source="Hometown"]/div[@class="pi-data-value pi-font"]/text()').text
@@ -38,7 +37,6 @@ class Queen < ApplicationRecord
                     date_of_birth: queen_date_of_birth,
                     hometown: queen_hometown,
                     current_city: queen_current_city,
-                    age: queen_age, 
                     ethnicity: queen_ethnicity,
                     instagram: queen_instagram,
                     twitter: queen_twitter,

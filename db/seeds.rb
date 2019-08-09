@@ -43,52 +43,116 @@ Season.create!(
 Season.create!(
     season_name: "Season 11",
 )#15
-
-Queen.destroy_all
-Trivium.destroy_all
-
-Queen.new.get_queens
-Trivium.new.get_trivia
-
-#Queen.create!(
-#    drag_name: "Monét X Change",
-#    real_name: "Kevin Bertin",
-#    social_media: "https://www.instagram.com/monetxchange/?hl=en",
-#    image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/d/dd/MonetXChangeAS4.jpg/revision/latest/scale-to-width-down/333?cb=20190207030734"
-#)
-#Trivium.create!(
-#    queen_id: 1,
-#    content: "Kevin spent his childhood in Saint Lucia, making Monét the second queen from the Caribbean to compete, the first being Vivacious from Jamaica."
-#)
-#Trivium.create!(
-#    queen_id: 1,
-#    content: "Her favorite cake is red velvet cake."
-#)
-#Queen.create!(
-#    drag_name: "BenDeLaCreme",
-#    real_name: "Benjamin Putnam",
-#    social_media: "https://www.instagram.com/bendelacreme",
-#    image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/0/01/BenDeLaCremeAS3.jpg/revision/latest?cb=20171021045348"
-#)
-#Trivium.create!(
-#    queen_id: 2,
-#    content: "BenDeLaCreme has the most challenge wins combined across 2 seasons with 7 challenge wins in total"
-#)
-#Trivium.create!(
-#    queen_id: 2,
-#    content: "She's the only queen to never place bottom on an All Stars Season"
-#)
-#Queen.create!(
-#    drag_name: "Alyssa Edwards",
-#    real_name: "Justin Dewayne Lee Johnson",
-#    social_media: "https://www.photostags.com/user/alyssaedwards_1",
-#    image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/e/ef/AlyssaAS2.jpg/revision/latest/scale-to-width-down/350?cb=20160617131459"
-#)
-#Trivium.create!(
-#    queen_id: 3,
-#    content: "Johnson owns his own dance studio, Beyond Belief, located in Mesquite, Texas."
-#)
-#Trivium.create!(
-#    queen_id: 3,
-#    content: "Alyssa is not only kown for her quotes, but also for the faces she makes in the mirror."
-#)
+Queen.create!(
+    drag_name: "Alyssa Edwards",
+    real_name: "Justin Dewayne Lee Johnson",
+    primary_image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/e/ef/AlyssaAS2.jpg/revision/latest/scale-to-width-down/350?cb=20160617131459",
+    date_of_birth: "1980/01/16",
+    hometown: "Mesquite, Texas",
+    current_city: "Dallas, Texas",
+    ethnicity: "Caucasion-Venezuelan",
+    instagram: "https://www.photostags.com/user/alyssaedwards_1",
+    twitter: "https://twitter.com/AlyssaEdwards_1",
+    facebook: "https://en-gb.facebook.com/QueenAlyssaEdwards/",
+    youtube: "https://www.youtube.com/channel/UCk2F1g62KkGZhl96gF8mnpw",
+    site: "",
+    imdb: ""
+)
+Trivium.create!(
+    queen_id: 1,
+    content: "Johnson owns his own dance studio, Beyond Belief, located in Mesquite, Texas."
+)
+Trivium.create!(
+    queen_id: 1,
+    content: "Alyssa is not only kown for her quotes, but also for the faces she makes in the mirror."
+)
+Quote.create!(
+    queen_id: 1,
+    content: "BEAST!"
+)
+Quote.create!(
+    queen_id: 1,
+    content: "BACKROLLS?!?!"
+)
+Appearance.create!(
+    queen_id: 1,
+    season_id: 6,
+)
+Appearance.create!(
+    queen_id: 1,
+    season_id: 10,
+)
+Queen.create!(
+    drag_name: "Valentina",
+    real_name: "James Andrew Leyva",
+    primary_image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/1/1d/Valentina2AS4.jpg/revision/latest?cb=20190207032427",
+    date_of_birth: "1991/05/14",
+    hometown: "Echo Park, California",
+    current_city: "Los Angeles, California",
+    ethnicity: "Mexican-American",
+    instagram: "https://www.instagram.com/allaboutvalentina/?hl=en",
+    twitter: "https://twitter.com/allofvalentina?lang=en",
+    facebook: "https://www.facebook.com/AllAboutValentina/",
+    youtube: "",
+    site: "https://www.allaboutvalentina.com/",
+    imdb: "https://m.imdb.com/name/nm8766505/"
+)
+Trivium.create!(
+    queen_id: 2,
+    content: "She was featured on the 24th Cycle of 'America's Next Top Model', as well as on Vogue Magazine, and is on the cast of 'RENT: Live'"
+)
+Trivium.create!(
+    queen_id: 2,
+    content: "Like Farrah Moan's and Nina Bo'nina Brown's, her elimination was leaked online prior to the episode airing"
+)
+Quote.create!(
+    queen_id: 2,
+    content: "Hello, it's me, Valentina!"
+)
+Quote.create!(
+    queen_id: 2,
+    content: "Ladies I'm boiling, my blood is simmering through my veins and I have some things to say, okay? I am DEEPLY and UTTERLY offended, that judge with the bun and the gold, I do not appreciate her non-constructive criticism of my beautiful outfit."
+)
+Appearance.create!(
+    queen_id: 2,
+    season_id: 11,
+)
+Appearance.create!(
+    queen_id: 2,
+    season_id: 14,
+)
+Queen.create!(
+    drag_name: "Bob The Drag Queen",
+    real_name: "Christopher Caldwell",
+    primary_image: "https://vignette.wikia.nocookie.net/logosrupaulsdragrace/images/0/0d/BobFullS8.jpg/revision/latest?cb=20180622041118",
+    date_of_birth: "1986/06/22",
+    hometown: "Columbus, Georgia",
+    current_city: "New York, New York",
+    ethnicity: "African-American",
+    instagram: "https://www.instagram.com/bobthedragqueen/",
+    twitter: "https://twitter.com/thatonequeen",
+    facebook: "https://www.facebook.com/officialbobthedragqueen/",
+    youtube: "https://m.youtube.com/channel/UCi7cIUhc2tuAf6_3FrKgcfg",
+    site: "https://www.bobthedragqueen.com/",
+    imdb: ""
+)
+Trivium.create!(
+    queen_id: 3,
+    content: "Her first time doing drag was at a LGBT pride event, where she and some friends protested. Doing so, Bob was arrested for holding up traffic with his friends."
+)
+Trivium.create!(
+    queen_id: 3,
+    content: "Bob was a minor character in the Netflix show 'Tales of the City' as a bar owner named 'Ida Best'"
+)
+Quote.create!(
+    queen_id: 3,
+    content: "Is Beyoncé scared of Britney? Then Bob ain't scared of Derrick."
+)
+Quote.create!(
+    queen_id: 3,
+    content: "Purse first! Purse first! Walk into the room purse first! Clack!"
+)
+Appearance.create!(
+    queen_id: 3,
+    season_id: 9,
+)
