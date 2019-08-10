@@ -63,13 +63,13 @@ class QueenShow extends Component {
                                   onSubmit={event => this.handleSubmit(event)}>
                                 <div className="meta">
                                     <span>Seasons: </span>
-                                    <div className="ui transparent input">
-                                        <input className="meta"
-                                               onChange={event =>
-                                                    this.handleRealNameChange(event)}
-                                               type="text"
-                                               placeholder="COMING SOON"/>
-                                    </div>
+                                    {this.props.queen.seasons.map(season => 
+                                        <div className="ui transparent input">
+                                            <input className="meta"
+                                                   onChange={event => this.handleRealNameChange(event)}
+                                                   type="text"
+                                                   placeholder={season.season_name}/>
+                                        </div>)}
                                 </div>
                                 <div className="meta">
                                     <span>Real Name: </span>

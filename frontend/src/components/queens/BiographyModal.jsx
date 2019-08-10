@@ -19,6 +19,9 @@ const BiographyModal = ({queen}) => (
                 {queen.current_city || "(info needed)"}{".  "}
             </p>
             <p>
+                {queen.seasons.map (season => season.season_name+"  ")} 
+            </p>
+            <p>{queen.seasons.find(1).season_name}
                 {"She was born as "} 
                 {queen.real_name || "(info needed)"}</p><p>{" in "} 
                 {queen.hometown || "(info needed)"}{" on "}
