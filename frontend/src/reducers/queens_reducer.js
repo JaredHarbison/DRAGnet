@@ -1,10 +1,6 @@
 import { LOADING_QUEENS, FETCH_QUEENS, UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM, UPDATE_QUEEN } from '../actions/queenActions';
 
-const initialState = {
-    loading: false,
-    drag_queens: [],
-    trivia: []
-}
+import initialState from './initialState';
 
 export default function queens_reducer(state = initialState, action) {
     console.log(action)
@@ -55,5 +51,3 @@ export default function queens_reducer(state = initialState, action) {
       return state
     }
 }
-//state.drag_queens[idx].trivia.filter((trivium) => trivium[tidx] !== tidx)]
-                                         
