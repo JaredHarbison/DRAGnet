@@ -16,7 +16,9 @@ const QueenIndexCards = ({ filteredQueens }) => {
                               verticalalign="middle"
                               className="ui small left floated rounded image"/>
                     </Link>
-                    <div className="header">{queen.drag_name}{" of Season X"}</div>
+                    <div className="header">{queen.drag_name}{" | "}
+                        {queen.seasons.map (season => 
+                            season.season_name+" | ")}</div>
                     <div className="ui divider"></div>
                     <span className="header"></span>
                         <div className="header">
@@ -64,7 +66,3 @@ const QueenIndexCards = ({ filteredQueens }) => {
 };
 
 export default QueenIndexCards;
-
-//<UpVote/>
-//<div className="meta"> hometown - {queen.hometown || "(info needed)" } </div>
-//<div className="meta"> current city - {queen.current_city || "(info needed)" } </div>

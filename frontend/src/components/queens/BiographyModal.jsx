@@ -10,9 +10,9 @@ const BiographyModal = ({queen}) => (
   <Modal trigger={<Button size="tiny">Biography</Button>} closeIcon>
     <Modal.Content>
          <img  src={queen.primary_image}
-                              alt={queen.drag_name}
-                              verticalalign="middle"
-                              className="ui small right floated rounded image"/>
+               alt={queen.drag_name}
+               verticalalign="middle"
+               className="ui small right floated rounded image"/>
         <div className="content">
             <p>
                 {queen.drag_name || "(info needed)"}{" currently lives in "}
@@ -21,7 +21,7 @@ const BiographyModal = ({queen}) => (
             <p>
                 {queen.seasons.map (season => season.season_name+"  ")} 
             </p>
-            <p>{queen.seasons.find(1).season_name}
+            <p>
                 {"She was born as "} 
                 {queen.real_name || "(info needed)"}</p><p>{" in "} 
                 {queen.hometown || "(info needed)"}{" on "}

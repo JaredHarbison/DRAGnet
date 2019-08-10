@@ -44,8 +44,8 @@ class QueenShow extends Component {
                             <img src={this.props.queen.primary_image}
                                  alt={this.props.queen.drag_name}
                                  className="ui left floated small image"/>
-                            <div className="header">
-                                <span><h1>{this.props.queen.drag_name}{"  "}</h1></span></div>
+                            <div className="header"><span><h1>
+                                {this.props.queen.drag_name}{"  "}</h1></span></div>
                             <span className="meta"> Social Media:  </span>
                                 <a  href={this.props.queen.instagram}
                                     rel="noopener noreferrer"
@@ -66,7 +66,8 @@ class QueenShow extends Component {
                                     {this.props.queen.seasons.map(season => 
                                         <div className="ui transparent input">
                                             <input className="meta"
-                                                   onChange={event => this.handleRealNameChange(event)}
+                                                   onChange={event => 
+                                                        this.handleRealNameChange(event)}
                                                    type="text"
                                                    placeholder={season.season_name}/>
                                         </div>)}
@@ -91,7 +92,8 @@ class QueenShow extends Component {
                                                     this.handleDateOfBirthChange(event)}
                                                value={this.props.date_of_birth}
                                                type="text"
-                                               placeholder={new Date(this.props.queen.date_of_birth)
+                                               placeholder={new Date(
+                                                          this.props.queen.date_of_birth)
                                                           .toLocaleDateString('en-US',
                                                           { weekday: 'short', year: 'numeric',
                                                           month: 'short', day: 'numeric' }) ||
