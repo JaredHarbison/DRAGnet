@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import QuotesModal from './QuotesModal';
 import TriviaModal from './TriviaModal';
 import BiographyModal from './BiographyModal';
 
@@ -50,6 +51,7 @@ const QueenIndexCards = ({ filteredQueens }) => {
                             <div className="ui divider"></div>
                     <BiographyModal queen={queen}/>
                     <TriviaModal queen={queen}/>
+                    <QuotesModal queen={queen}/>
                 </div>
             </div>
         </div>
