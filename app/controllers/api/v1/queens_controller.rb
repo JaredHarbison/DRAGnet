@@ -25,7 +25,13 @@ class Api::V1::QueensController < ApplicationController
     end
 
       def queen_params
-        params.require(:queen).permit(:id, :drag_name, :real_name, :date_of_birth, :hometown, :current_city)#, trivium_attributes: [:id, :queen_id, :content])
+        params.require(:queen).permit(:id, :drag_name, :real_name, :date_of_birth, :hometown, :current_city, 
+                                      :instagram, :facebook, :youtube, :website, :imdb, :twitter, :wikipedia,
+                                      appearances_attributes: [:season_id],
+                                      seasons_attribues: [:season_name], 
+                                      trivia_attributes: [:queen_id, :content], 
+                                      quotes_attributes: [:queen_id, :content], 
+                                      )
       end
 
   end

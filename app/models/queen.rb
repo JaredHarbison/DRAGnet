@@ -15,6 +15,7 @@ class Queen < ApplicationRecord
         queen_text = "https://rupaulsdragrace.fandom.com/wiki/#{queen.attr("title")}"
         queen_url = I18n.transliterate(queen_text).split(' ').join('_').gsub(/\(.+/, '')
         queen_doc = Nokogiri::HTML(open(queen_url))
+        queen_seasons = queen_doc.xpath('//*[@data-source="Season"]/div[@class="pi-data-value pi-font"]/a').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         queen_drag_name ||= queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(2) > div").text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '')
         queen_real_name ||= queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(3) > div").text.split(' ').join(' ')
         queen_primary_image = queen_doc.css('#mw-content-text > aside > figure > a').attribute('href') || queen_doc.css('#pi-tab-0 > figure > a > img').attribute('src')
@@ -28,9 +29,17 @@ class Queen < ApplicationRecord
         queen_twitter = queen_doc.xpath('//a[text()="Twitter"]').attribute('href')
         queen_facebook = queen_doc.xpath('//a[text()="Facebook"]').attribute('href')
         queen_youtube = queen_doc.xpath('//a[text()="YouTube"]').attribute('href')
-        queen_site = queen_doc.xpath('//a[text()="Site"]').attribute('href')
+        variable_queen_site = queen_doc.xpath('//a[text()="Site"]').attribute('href')
+        variable_queen_official_site = queen_doc.xpath('//a[text()="Official Website"]').attribute('href')
+        queen_website = variable_queen_site ? variable_queen_site : variable_queen_official_site
         queen_imdb = queen_doc.xpath('//a[text()="IMDB Page"]').attribute('href')
-        queen_trivia = queen_doc.xpath('//*[@id="Trivia"]/following::*/li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
+        queen_wikipedia = queen_doc.xpath('//a[text()="Wikipedia"]').attribute('href')
+####### I would like to scrape less for trivia and quotes...
+####### ... but I couldn't get following_siblings to work
+        variable_fandom_quotes = queen_doc.xpath('//*[@id="Quotes"]/following::*/li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+        variable_memorable_quotes = queen_doc.xpath('//*[@id="Memorable_Quotes"]/following::*/li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+        queen_trivia = queen_doc.xpath('//*[@id="Trivia"]/following::*/li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
+        queen_quotes = variable_fandom_quotes + variable_memorable_quotes
         Queen.create!(drag_name: queen_drag_name,
                     real_name: queen_real_name,
                     primary_image: queen_primary_image,
@@ -42,9 +51,37 @@ class Queen < ApplicationRecord
                     twitter: queen_twitter,
                     facebook: queen_facebook,
                     youtube: queen_youtube,
-                    site: queen_site,
-                    imdb: queen_imdb
+                    website: queen_website,
+                    imdb: queen_imdb, 
+                    wikipedia: queen_wikipedia,
+################### I would like to iterate through the queen_* arrays. 
+################### Failed are attempts commented below
+                    trivia_attributes: [content: queen_trivia[0]],
+                    quotes_attributes: [content: queen_quotes[0]], 
+                    appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0]).id],
                   )
         end
     end
 end
+
+
+
+
+
+#queen_seasons.map {|season| Appearance.create season_id: }
+#queen_trivia.each do |trivium|
+#  Queen.create!(trivia_attributes: [content: trivium])
+#end 
+#Queen.create!(queen_trivia.each {|trivium| {trivia_attributes: [content: trivium]}}) #### "...you must pass a hash as an argument"
+#queen_trivia.each do |trivium| 
+#  {trivia_attributes: [content: trivium]}
+#end
+#queen_trivia.each {|trivium| {trivia_attributes: [content : trivium]}} #### "...you must pass a hash as an argument"
+#queen_trivia.first.each do |trivium| 
+#  {trivia_attributes: [content: trivium]}
+#end  #### "...you must pass a hash as an argument"
+#trivia_attributes: [content: queen_trivia.first(10)]
+#queen_trivia.each {|trivium| trivia_attributes: [content: trivium]} #### "unexpected : expecting }"
+#trivia_attributes: queen_trivia.each {|trivium| [content: trivium]} #### "no implicit conversion of symbol into integer"
+#trivia_attributes: [content: queen_trivia.each {|trivium| trivium}] #### just populates into one trivium id
+#queen_trivia.each {|content| trivia_attributes: [content: content]}

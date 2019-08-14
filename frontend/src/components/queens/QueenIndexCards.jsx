@@ -38,7 +38,7 @@ const QueenIndexCards = ({ filteredQueens }) => {
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="youtube icon"></i></a>
-                            <a  href={queen.site}
+                            <a  href={queen.website}
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="home icon"></i></a>
