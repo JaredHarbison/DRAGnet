@@ -11,8 +11,9 @@ class CreateQueens < ActiveRecord::Migration[5.2]
       t.string :twitter
       t.string :facebook
       t.string :youtube
-      t.string :site
+      t.string :website
       t.string :imdb
+      t.string :wikipedia 
       t.date :date_of_birth
       t.integer :age
       t.timestamps

@@ -18,7 +18,7 @@ const BiographyModal = ({queen}) => (
                 {queen.drag_name || "(info needed)"}{" currently lives in "}
                 {queen.current_city || "(info needed)"}{".  "}
             </p>
-            <p>
+            <p> {queen.ethnicity}
                 {queen.seasons.map (season => season.season_name+"  ")} 
             </p>
             <p>

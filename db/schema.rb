@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 2019_07_30_171149) do
     t.string "twitter"
     t.string "facebook"
     t.string "youtube"
-    t.string "site"
+    t.string "website"
     t.string "imdb"
+    t.string "wikipedia"
     t.date "date_of_birth"
     t.integer "age"
     t.datetime "created_at", null: false
