@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import QueenSearch from './QueenSearch';
 import QueenShow from './QueenShow';
 
-const QueensPage = ({ match, dragQueens }) => (
+const QueensContainer = ({ match, dragQueens }) => (
     <div className="ui fluid container">
         <Switch>
             <Route exact path={match.url}
@@ -17,4 +17,4 @@ const QueensPage = ({ match, dragQueens }) => (
     </div>
 )
 
-export default QueensPage;
+export default QueensContainer;
