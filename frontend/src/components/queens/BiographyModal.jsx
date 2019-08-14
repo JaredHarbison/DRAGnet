@@ -15,16 +15,20 @@ const BiographyModal = ({queen}) => (
                className="ui small right floated rounded image"/>
         <div className="content">
             <p>
-                {queen.drag_name || "(info needed)"}{" currently lives in "}
-                {queen.current_city || "(info needed)"}{".  "}
-            </p>
-            <p> {queen.ethnicity}
-                {queen.seasons.map (season => season.season_name+"  ")} 
+                {queen.drag_name || "(info needed)"}
+                {" of "}
+                {queen.seasons.map (season => season.season_name+"  ")}
+                {" currently lives in "}
+                {queen.current_city || "(info needed)"}
+                {".  "}
             </p>
             <p>
-                {"She was born as "} 
-                {queen.real_name || "(info needed)"}</p><p>{" in "} 
-                {queen.hometown || "(info needed)"}{" on "}
+                {"She is "}{(queen.ethnicity) || "(info needed)"}
+                {" and born as "} 
+                {queen.real_name || "(info needed)"}
+                {" in " } 
+                {queen.hometown || "(info needed)"}
+                {" on "}
                 {new Date(queen.date_of_birth)
                 .toLocaleDateString('en-US', DATE_OPTIONS)}{".  "}
             </p>

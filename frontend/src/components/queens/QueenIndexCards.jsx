@@ -16,9 +16,9 @@ const QueenIndexCards = ({ filteredQueens }) => {
                               verticalalign="middle"
                               className="ui small left floated rounded image"/>
                     </Link>
-                    <div className="header">{queen.drag_name}{" | "}
+                    <div className="header">{queen.drag_name}{" of "}
                         {queen.seasons.map (season => 
-                            season.season_name+" | ")}</div>
+                            season.season_name+"  ")}</div>
                     <div className="ui divider"></div>
                     <span className="header"></span>
                         <div className="header">
@@ -46,7 +46,7 @@ const QueenIndexCards = ({ filteredQueens }) => {
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="imdb icon"></i></a>
-                            <a  href={queen.instagram}
+                            <a  href={queen.wikipedia}
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="wikipedia w icon"></i></a></div>
