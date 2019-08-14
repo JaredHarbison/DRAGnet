@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { Route } from 'react-router-dom';
 import NavBar from './common/NavBar'
-import QueensPage from '../components/queens/QueensPage'
+import QueensContainer from './queens/QueensContainer'
 import * as actions from '../actions/queenActions.js'
+import SeasonsContainer from './seasons/SeasonsContainer';
 
 class App extends Component {
 
@@ -19,8 +20,11 @@ class App extends Component {
                 <Route exact path="/"
                        render={() => (<h3>Welcome to DRAGnet!</h3>)} />
                 <Route path="/queens"
-                       render={routerProps => <QueensPage {...routerProps}
+                       render={routerProps => <QueensContainer {...routerProps}
                        dragQueens={this.props.dragQueens} />} />
+                <Route path="/seasons"
+                       render={routerProps => <SeasonsContainer {...routerProps}
+                       dragQueens={this.props.dragQueens} /> }/>
             </div>
             );
         }

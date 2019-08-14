@@ -8,7 +8,7 @@ const NavBar = ({dragQueens}) => (
 
         <Link className="item" to="/queens"> Browse Queens </Link>
 
-        <Link className="item" to="/"> Browse Seasons </Link>
+        <Link className="item" to="/seasons"> Browse Seasons </Link>
 
         <Link className="item" to="/"> Your Account </Link>
 

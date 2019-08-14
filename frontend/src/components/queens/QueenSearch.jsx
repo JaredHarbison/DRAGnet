@@ -24,7 +24,7 @@ class QueenSearch extends React.Component {
                 <div className="ui fluid card">
                     <div className="ui fluid icon input">
                         <input type="text"
-                            placeholder="... or search her drag name here"
+                            placeholder="... search a drag name here"
                             value={this.state.search}
                             onChange={this.updateSearch.bind(this)} />
                     </div>
