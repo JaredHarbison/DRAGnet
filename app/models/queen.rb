@@ -5,6 +5,7 @@ class Queen < ApplicationRecord
     has_many :seasons, through: :appearances
     accepts_nested_attributes_for :trivia, :quotes, :seasons, :appearances
 
+
     def get_queens
       index_url = "https://rupaulsdragrace.fandom.com/wiki/Category:Queens"
       index_doc = Nokogiri::HTML(open(index_url))
@@ -34,8 +35,6 @@ class Queen < ApplicationRecord
         queen_website = variable_queen_site ? variable_queen_site : variable_queen_official_site
         queen_imdb = queen_doc.xpath('//a[text()="IMDB Page"]').attribute('href')
         queen_wikipedia = queen_doc.xpath('//a[text()="Wikipedia"]').attribute('href')
-####### I would like to scrape less for trivia and quotes...
-####### ... but I couldn't get following_siblings to work
         variable_fandom_quotes = queen_doc.xpath('//*[@id="Quotes"]/following::*/li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         variable_memorable_quotes = queen_doc.xpath('//*[@id="Memorable_Quotes"]/following::*/li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         queen_trivia = queen_doc.xpath('//*[@id="Trivia"]/following::*/li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
@@ -54,11 +53,9 @@ class Queen < ApplicationRecord
                     website: queen_website,
                     imdb: queen_imdb, 
                     wikipedia: queen_wikipedia,
-################### I would like to iterate through the queen_* arrays. 
-################### Failed are attempts commented below
-                    trivia_attributes: [content: queen_trivia[0]],
-                    quotes_attributes: [content: queen_quotes[0]], 
-                    appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0]).id],
+                    trivia_attributes: queen_trivia[0..10].map {|trivium| {content: trivium}},
+                    quotes_attributes: queen_quotes[0..10].map {|quote| {content: quote}}, 
+                    appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0..2]).id],
                   )
         end
     end
