@@ -35,10 +35,11 @@ class Queen < ApplicationRecord
         queen_website = variable_queen_site ? variable_queen_site : variable_queen_official_site
         queen_imdb = queen_doc.xpath('//a[text()="IMDB Page"]').attribute('href')
         queen_wikipedia = queen_doc.xpath('//a[text()="Wikipedia"]').attribute('href')
-        variable_fandom_quotes = queen_doc.xpath('//*[@id="Quotes"]/following::*/li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
-        variable_memorable_quotes = queen_doc.xpath('//*[@id="Memorable_Quotes"]/following::*/li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
-        queen_trivia = queen_doc.xpath('//*[@id="Trivia"]/following::*/li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
-        queen_quotes = variable_fandom_quotes + variable_memorable_quotes
+        variable_fandom_quotes = queen_doc.xpath('//*[preceding::*[@id="Quotes"] and following::*[@id="Trivia"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+        variable_memorable_quotes = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes"] and following::*[@id="Trivia"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+        variable_memorable_quotes_C2A0 = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes.C2.A0"] and following::*[@id="Trivia"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+        queen_trivia = queen_doc.xpath('//*[preceding::*[@id="Trivia"] and following::*[@id="Gallery"]]//following-sibling::li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
+        queen_quotes = variable_fandom_quotes + variable_memorable_quotes + variable_memorable_quotes_C2A0  
         Queen.create!(drag_name: queen_drag_name,
                     real_name: queen_real_name,
                     primary_image: queen_primary_image,
@@ -53,8 +54,8 @@ class Queen < ApplicationRecord
                     website: queen_website,
                     imdb: queen_imdb, 
                     wikipedia: queen_wikipedia,
-                    trivia_attributes: queen_trivia[0..10].map {|trivium| {content: trivium}},
-                    quotes_attributes: queen_quotes[0..10].map {|quote| {content: quote}}, 
+                    trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
+                    quotes_attributes: queen_quotes.map {|quote| {content: quote}}, 
                     appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0..2]).id],
                   )
         end
