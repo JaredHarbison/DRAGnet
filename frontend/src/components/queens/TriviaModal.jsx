@@ -6,7 +6,7 @@ import QueenTrivia from '../trivia/QueenTrivia';
 
 
 const TriviaModal = ({queen}) => (
-    <Modal trigger={<Button size="tiny">Trivia</Button>} closeIcon>
+    <Modal trigger={<Button size="tiny">{queen.trivia.length} Trivium</Button>} closeIcon>
         <Modal.Content>
         <img  src={queen.primary_image}
                alt={queen.drag_name}
