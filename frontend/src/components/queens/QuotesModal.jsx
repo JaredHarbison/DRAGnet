@@ -6,7 +6,7 @@ import QueenQuotes from '../quotes/QueenQuotes';
 
 
 const QuotesModal = ({queen}) => (
-    <Modal trigger={<Button size="tiny">Quotes</Button>} closeIcon>
+    <Modal trigger={<Button size="tiny">{queen.quotes.length} Quotes</Button>} closeIcon>
         <Modal.Content>
         <img  src={queen.primary_image}
                alt={queen.drag_name}
