@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { deleteQuote } from '../../actions/quoteActions'
+import { deleteQuote } from '../../actions/index'
 import UpVote from '../common/UpVote';
 import DownVote from '../common/DownVote';
 import initialState from '../../reducers/initialState';
