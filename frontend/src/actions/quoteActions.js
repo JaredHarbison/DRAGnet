@@ -1,7 +1,3 @@
-
-export const ADD_QUEEN_QUOTE = 'ADD_QUEEN_QUOTE';
-export const DELETE_QUEEN_QUOTE = 'DELETE_QUEEN_QUOTE';
-
 export const addQuote = (quote) => {
     return (dispatch) => {
         return fetch(`/quotes`, {
