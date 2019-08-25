@@ -1,3 +1,5 @@
+import { LOADING_QUEENS, FETCH_QUEENS, UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM, UPDATE_QUEEN } from './types'
+
 export const fetchQueens = () => {
     return (dispatch) => {
         dispatch({ type: LOADING_QUEENS })

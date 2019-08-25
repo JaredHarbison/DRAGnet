@@ -1,4 +1,4 @@
-import { ADD_QUEEN_QUOTE, DELETE_QUEEN_QUOTE } from '../actions/quoteActions';
+import { ADD_QUEEN_QUOTE, DELETE_QUEEN_QUOTE } from '../actions/types';
 
 import initialState from './initialState';
 
