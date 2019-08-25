@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { addTrivia } from '../../actions/queenActions';
+import { addTrivia } from '../../actions/index';
 
 class CreateTrivium extends Component {
     state = {text: '' , trivia: []};

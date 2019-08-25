@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { deleteTrivium } from '../../actions/queenActions'
+import { deleteTrivium } from '../../actions/index'
 import UpVote from '../common/UpVote';
 import DownVote from '../common/DownVote';
 

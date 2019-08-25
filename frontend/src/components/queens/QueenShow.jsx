@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import CreateTrivium from '../trivia/CreateTrivium'
 import QueenTrivia from '../trivia/QueenTrivia'
-import { updateQueen } from '../../actions/queenActions'
+import { updateQueen } from '../../actions/index'
 
 
 
