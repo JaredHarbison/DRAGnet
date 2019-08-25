@@ -1,14 +1,3 @@
-export const FETCH_QUEENS = 'FETCH_QUEENS';
-export const LOADING_QUEENS = 'LOADING_QUEENS';
-export const UPDATE_QUEEN_TRIVIA = 'UPDATE_QUEEN_TRIVIA';
-export const DELETE_QUEEN_TRIVIUM = 'DELETE_QUEEN_TRIVIUM';
-export const UPDATE_QUEEN = 'UPDATE_QUEEN';
-export const FETCH_QUEEN = 'FETCH_QUEEN';
-
-
-//async actions
-
-
 export const fetchQueens = () => {
     return (dispatch) => {
         dispatch({ type: LOADING_QUEENS })

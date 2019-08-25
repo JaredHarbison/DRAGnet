@@ -1,6 +1,3 @@
-export const LOADING_SEASONS = 'LOADING_SEASONS'
-export const FETCH_SEASONS = 'FETCH_SEASONS'
-
 export const fetchSeasons = () => {
     return (dispatch) => {
         dispatch({ type: LOADING_SEASONS })
