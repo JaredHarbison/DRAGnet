@@ -4,13 +4,14 @@ import { bindActionCreators } from 'redux'
 import { Route } from 'react-router-dom';
 import NavBar from './common/NavBar'
 import QueensContainer from './queens/QueensContainer'
-import * as actions from '../actions/queenActions.js'
+import * as actions from '../actions/index'
 import SeasonsContainer from './seasons/SeasonsContainer';
 
 class App extends Component {
 
     componentDidMount = () => {
-        this.props.actions.fetchQueens()
+        this.props.actions.fetchQueens();
+        this.props.actions.fetchSeasons();
     }
 
     render() {
@@ -24,14 +25,15 @@ class App extends Component {
                        dragQueens={this.props.dragQueens} />} />
                 <Route path="/seasons"
                        render={routerProps => <SeasonsContainer {...routerProps}
-                       dragQueens={this.props.dragQueens} /> }/>
+                       rpdrSeasons={this.props.rpdrSeasons} /> }/>
             </div>
             );
         }
     }
 
     function mapStateToProps(state) {
-        return { dragQueens: state.queens.drag_queens};
+        return { dragQueens: state.queens.drag_queens, 
+                 rpdrSeasons: state.seasons.rpdr_seasons};
     };
 
     const mapDispatchToProps = dispatch => {
