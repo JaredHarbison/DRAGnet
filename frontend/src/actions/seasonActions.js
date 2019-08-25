@@ -1,3 +1,5 @@
+import { LOADING_SEASONS, FETCH_SEASONS } from './types'
+
 export const fetchSeasons = () => {
     return (dispatch) => {
         dispatch({ type: LOADING_SEASONS })

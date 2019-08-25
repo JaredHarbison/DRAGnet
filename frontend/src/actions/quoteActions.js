@@ -1,3 +1,5 @@
+import { ADD_QUEEN_QUOTE, DELETE_QUEEN_QUOTE } from './types'
+
 export const addQuote = (quote) => {
     return (dispatch) => {
         return fetch(`/quotes`, {

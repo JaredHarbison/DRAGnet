@@ -1,4 +1,4 @@
-import { LOADING_QUEENS, FETCH_QUEENS, UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM, UPDATE_QUEEN } from '../actions/queenActions';
+import { LOADING_QUEENS, FETCH_QUEENS, UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM, UPDATE_QUEEN } from '../actions/types';
 
 import initialState from './initialState';
 
