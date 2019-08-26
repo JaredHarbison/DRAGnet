@@ -6,7 +6,7 @@ import { updateQueen } from '../../actions/queenActions'
 
 
 
-class QueenShow extends Component {
+class QueenEdit extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -316,4 +316,4 @@ const mapDispatchToProps = { updateQueen };
 export default connect (
     mapStateToProps,
     mapDispatchToProps
-)(QueenShow);
+)(QueenEdit);
