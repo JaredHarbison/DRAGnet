@@ -22,7 +22,8 @@ class App extends Component {
                        render={() => (<h3>Welcome to DRAGnet!</h3>)} />
                 <Route path="/queens"
                        render={routerProps => <QueensContainer {...routerProps}
-                       dragQueens={this.props.dragQueens} />} />
+                       dragQueens={this.props.dragQueens} 
+                       rpdrSeasons={this.props.rpdrSeasons}/>} />
                 <Route path="/seasons"
                        render={routerProps => <SeasonsContainer {...routerProps}
                        rpdrSeasons={this.props.rpdrSeasons} /> }/>

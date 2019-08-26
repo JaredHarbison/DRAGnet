@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 
 import QuotesModal from './QuotesModal';
 import TriviaModal from './TriviaModal';
@@ -10,12 +11,10 @@ const QueenIndexCards = ({ filteredQueens }) => {
         <div className="ui fluid cards" key={queen.id}>
             <div className="ui fluid card">
                 <div className="content">
-                    <Link key={queen.id} to={`/queens/${queen.id}`}>
-                        <img  src={queen.primary_image}
-                              alt={queen.drag_name}
-                              verticalalign="middle"
-                              className="ui small left floated rounded image"/>
-                    </Link>
+                    <img  src={queen.primary_image}
+                          alt={queen.drag_name}
+                          verticalalign="middle"
+                          className="ui small left floated rounded image"/>
                     <div className="header">{queen.drag_name}{" of "}
                         {queen.seasons.map (season => 
                             season.season_name+"  ")}</div>
@@ -54,6 +53,9 @@ const QueenIndexCards = ({ filteredQueens }) => {
                     <BiographyModal queen={queen}/>
                     <TriviaModal queen={queen}/>
                     <QuotesModal queen={queen}/>
+                    <Link key={queen.id} to={`/queens/${queen.id}`}>
+                        <Button size="tiny">Edit Info</Button>
+                    </Link>
                 </div>
             </div>
         </div>
