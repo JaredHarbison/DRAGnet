@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { updateSeason } from '../../actions/index'
+import CreateAppearance from './CreateAppearance'
 
 
 
@@ -31,6 +32,7 @@ class SeasonEdit extends Component {
                                 <img src={queen.primary_image} className="ui avatar image"/>
                                 <span>{queen.drag_name}</span>
                             </div>)}
+            <CreateAppearance season={this.props.season}/>
             </div>
       ) : (<p>loading...</p>)
     }

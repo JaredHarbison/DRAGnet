@@ -29,3 +29,17 @@ export const updateSeason = (season) => {
         })
       }
 }
+
+export const addAppearance = (appearance) => {
+    return (dispatch) => {
+        return fetch(`/appearances`, {
+            method: "post",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(appearance)
+        }).then(res => res.json()).then(data => {
+          dispatch({type:UPDATE_SEASON, payload: data})
+        })
+    };
+};
