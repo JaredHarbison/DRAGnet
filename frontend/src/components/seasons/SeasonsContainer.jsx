@@ -10,11 +10,12 @@ const SeasonsContainer = ({ match, dragQueens, rpdrSeasons }) => (
             <Route exact path={match.url}
                    render={routerProps => {
                        return <SeasonsIndex {...routerProps} rpdrSeasons={rpdrSeasons}/>}}/>
-            <Route exact path={`${match.url}/:queenID`}
+            <Route exact path={`${match.url}/:seasonID`}
                    render={routerProps => {
                        return <SeasonEdit {...routerProps}
                             rpdrSeasons={rpdrSeasons}
-                            dragQueens={dragQueens}/>}}/>
+                            dragQueens={dragQueens}
+                            season={rpdrSeasons.find(s => s.id == routerProps.match.params.seasonID)}/>}}/>
         </Switch>
     </div>
 )
