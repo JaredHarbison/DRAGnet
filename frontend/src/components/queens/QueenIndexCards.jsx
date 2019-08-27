@@ -4,6 +4,7 @@ import { Button } from 'semantic-ui-react';
 
 import QuotesModal from './QuotesModal';
 import TriviaModal from './TriviaModal';
+import { arrayToSentence } from '../../actions/index'
 import BiographyModal from './BiographyModal';
 
 const QueenIndexCards = ({ filteredQueens }) => {
@@ -15,9 +16,11 @@ const QueenIndexCards = ({ filteredQueens }) => {
                           alt={queen.drag_name}
                           verticalalign="middle"
                           className="ui small left floated rounded image"/>
-                    <div className="header">{queen.drag_name}{" of "}
-                        {queen.seasons.map (season => 
-                            season.season_name+"  ")}</div>
+                    <div className="header">{queen.drag_name}
+                    </div>
+                    <div className="ui divider"></div>
+                    <div className="header">{ arrayToSentence(queen.seasons.map (season =>
+                        season.season_name)) }</div>
                     <div className="ui divider"></div>
                     <span className="header"></span>
                         <div className="header">
