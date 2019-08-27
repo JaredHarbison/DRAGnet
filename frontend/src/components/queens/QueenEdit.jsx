@@ -12,7 +12,6 @@ class QueenEdit extends Component {
         this.state = {
             id: props.id, 
             real_name: props.real_name,
-            seasons: props.seasons, 
             date_of_birth: props.date_of_birth,
             hometown: props.hometown,
             current_city: props.current_city,
@@ -28,9 +27,6 @@ class QueenEdit extends Component {
     }
     handleRealNameChange = event => {
           this.setState({ real_name: event.target.value });
-    };
-    handleSeasonsChange = event => {
-          this.setState({ seasons: event.target.value });
     };
     handleDateOfBirthChange = event => {
           this.setState({ date_of_birth: event.target.value });
@@ -94,23 +90,6 @@ class QueenEdit extends Component {
                                                     {this.props.queen.drag_name}{"  "}</h1></span>
                                                 </div>
                                                 <div className="ui divider"></div>
-                                                <div className="meta">
-                                                    <span>Seasons: </span>
-                                                    {this.props.queen.seasons.map(season => 
-                                                    <span className="meta">{season.season_name}</span>)}
-                                                    <div className="ui input">
-                                                        <input className="meta"
-                                                               list="seasons"
-                                                               onChange={event => 
-                                                                    this.handleSeasonsChange(event)}
-                                                               type="text"
-                                                               placeholder="add a season"/>
-                                                        </div>
-                                                        <datalist id="seasons">
-                                                            {this.props.rpdrSeasons.map(season =>
-                                                            <option value={season.season_name}></option>)}
-                                                        </datalist>
-                                                </div>
                                                 <div className="meta">
                                                     <span>Real Name: </span>
                                                     <div className="ui transparent input">
