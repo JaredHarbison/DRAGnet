@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Modal } from 'semantic-ui-react'
 
+import { arrayToSentence } from '../../actions/index'
+
 const DATE_OPTIONS = { weekday: 'short', 
                        year: 'numeric', 
                        month: 'short', 
@@ -17,7 +19,7 @@ const BiographyModal = ({queen}) => (
             <p>
                 {queen.drag_name || "(info needed)"}
                 {" of "}
-                {queen.seasons.map (season => season.season_name+"  ")}
+                {arrayToSentence(queen.seasons.map (season => season.season_name))}
                 {" currently lives in "}
                 {queen.current_city || "(info needed)"}
                 {".  "}
