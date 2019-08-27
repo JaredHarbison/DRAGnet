@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import CreateTrivium from '../trivia/CreateTrivium'
 import QueenTrivia from '../trivia/QueenTrivia'
-import { updateQueen } from '../../actions/queenActions'
+import { updateQueen, arrayToSentence} from '../../actions/index'
 
 
 
@@ -90,10 +90,18 @@ class QueenEdit extends Component {
                                                     {this.props.queen.drag_name}{"  "}</h1></span>
                                                 </div>
                                                 <div className="ui divider"></div>
-                                                <div className="meta">
+                                                <div className="header">
+                                                    { 
+                                                    arrayToSentence(this.props.queen.seasons
+                                                        .map (season =>
+                                                    season.season_name)) 
+                                                    }
+                                                </div>
+                                                <div className="ui divider"></div>
+                                                <div className="content">
                                                     <span>Real Name: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta"
+                                                        <input className="content"
                                                                onChange={event =>
                                                                     this.handleRealNameChange(event)}
                                                                value={this.props.real_name}
@@ -102,10 +110,10 @@ class QueenEdit extends Component {
                                                                           "add missing info here" }/>
                                                     </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>Date of Birth: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta"
+                                                        <input className="content"
                                                                onChange={event =>
                                                                     this.handleDateOfBirthChange(event)}
                                                                value={this.props.date_of_birth}
@@ -118,10 +126,10 @@ class QueenEdit extends Component {
                                                                           "add missing info here" }/>
                                                     </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>Ethnicity: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta"
+                                                        <input className="content"
                                                                onChange={event =>
                                                                     this.handleEthnicityChange(event)}
                                                                value={this.props.ethnicity}
@@ -130,10 +138,10 @@ class QueenEdit extends Component {
                                                                           "add missing info here"}/>
                                                     </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>Hometown: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta"
+                                                        <input className="content"
                                                                onChange={event =>
                                                                     this.handleHometownChange(event)}
                                                                value={this.props.hometown}
@@ -142,10 +150,10 @@ class QueenEdit extends Component {
                                                                           "add missing info here" }/>
                                                     </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>Current City: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta"
+                                                        <input className="content"
                                                                onChange={event =>
                                                                     this.handleCurrentCityChange(event)}
                                                                value={this.props.current_city}
@@ -188,10 +196,10 @@ class QueenEdit extends Component {
                                                    target="_blank">
                                                 <i className="wikipedia w icon"></i></a></h1></div>
                                                 <div className="ui divider"></div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>Instagram: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta" 
+                                                        <input className="content" 
                                                                onChange={event => 
                                                                     this.handleInstagramChange(event)}
                                                                type="text"
@@ -199,10 +207,10 @@ class QueenEdit extends Component {
                                                                         "add missing info here"}/>
                                                     </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>Twitter: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta" 
+                                                        <input className="content" 
                                                                onChange={event => 
                                                                     this.handleTwitterChange(event)}
                                                                type="text"
@@ -210,10 +218,10 @@ class QueenEdit extends Component {
                                                                         "add missing info here"}/>
                                                     </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>Facebook: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta" 
+                                                        <input className="content" 
                                                                onChange={event => 
                                                                     this.handleFacebookChange(event)}
                                                                type="text"
@@ -221,10 +229,10 @@ class QueenEdit extends Component {
                                                                         "add missing info here"}/>
                                                     </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>YouTube: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta" 
+                                                        <input className="content" 
                                                                onChange={event => 
                                                                     this.handleYouTubeChange(event)}
                                                                type="text"
@@ -232,10 +240,10 @@ class QueenEdit extends Component {
                                                                         "add missing info here"}/>
                                                    </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>Website: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta" 
+                                                        <input className="content" 
                                                                onChange={event => 
                                                                     this.handleWebsiteChange(event)}
                                                                type="text"
@@ -243,10 +251,10 @@ class QueenEdit extends Component {
                                                                     "add missing info here"}/>
                                                     </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>IMDB: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta" 
+                                                        <input className="content" 
                                                                onChange={event => 
                                                                     this.handleIMDBChange(event)}
                                                                type="text"
@@ -254,10 +262,10 @@ class QueenEdit extends Component {
                                                                     "add missing info here"}/>
                                                     </div>
                                                 </div>
-                                                <div className="meta">
+                                                <div className="content">
                                                     <span>Wikipedia: </span>
                                                     <div className="ui transparent input">
-                                                        <input className="meta" 
+                                                        <input className="content" 
                                                                onChange={event => 
                                                                     this.handleWikipediaChange(event)}
                                                                type="text"
