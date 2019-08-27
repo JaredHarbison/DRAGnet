@@ -19,7 +19,8 @@ const BiographyModal = ({queen}) => (
             <p>
                 {queen.drag_name || "(info needed)"}
                 {" of "}
-                {arrayToSentence(queen.seasons.map (season => season.season_name))}
+                {arrayToSentence(queen.seasons.map (season => season.season_name))
+                || "(info needed)"}
                 {" currently lives in "}
                 {queen.current_city || "(info needed)"}
                 {".  "}
