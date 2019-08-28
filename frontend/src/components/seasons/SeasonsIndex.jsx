@@ -15,7 +15,7 @@ const SeasonsIndex = ({ rpdrSeasons }) => {
                         {season.queens.map(queen=>
                             <div className="content">
                                 <img src={queen.primary_image} className="ui avatar image"/>
-                                <span>{queen.drag_name}</span>
+                                <span>{queen.id}{queen.drag_name}</span>
                             </div>)}
                     </div>
                 </div>

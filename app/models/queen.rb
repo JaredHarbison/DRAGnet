@@ -56,6 +56,7 @@ class Queen < ApplicationRecord
                     trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
                     quotes_attributes: queen_quotes.map {|quote| {content: quote}}, 
                     appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0]).id],
+                    #queen_seasons.map {|season| Appearance.create!(season_id: Season.find_by(season_name: season))}
                   )
         end
     end
