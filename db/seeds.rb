@@ -46,21 +46,49 @@ Season.create!(
 
 Queen.new.get_queens
 
-duplicate_queens = 
-    [
-        50, 55, 56, 139, 26, 48, 49, 58, 118, 140, 141, 51, 52, 54, 57, 166, 
-        47, 53, 119, 165, 113, 114, 116, 117, 122, 121, 142, 145, 168, 115, 120, 
-        137, 138, 170, 132, 144, 146, 164, 143, 148, 162, 167, 169, 161, 163, 175
-    ]
-
-Queen.destroy(duplicate_queens)
-
-#all_stars_four = 
+#duplicate_queens = 
 #    [
-#        126, 129, 130, 
+#        50, 55, 56, 139, 26, 48, 49, 58, 118, 140, 141, 51, 52, 54, 57, 166, 
+#        47, 53, 119, 165, 113, 114, 116, 117, 122, 121, 142, 145, 168, 115, 120, 
+#        137, 138, 170, 132, 144, 146, 164, 143, 148, 162, 167, 169, 161, 163, 175
 #    ]
-
-#all_stars_four.map {|asq| Appearance.create!(queen_id: asq, season_id: 13)}
+#
+#Queen.destroy(duplicate_queens)
+#
+#Appearance.create!(queen_id: 20, season_id: 3) # Shangela Season 3
+#Appearance.create!(queen_id: 110, season_id: 10) # Cynthia Lee Fontaine Season 9
+#Appearance.create!(queen_id: 133, season_id: 12) # Eureka O'Hara Season 10
+#Appearance.create!(queen_id: 160, season_id: 15) # Vanessa Vanjie Mateo Season 11
+#
+#all_stars_one = #5
+#    [
+#        35, 10, 11, 3, 23, 24, 22, 37, 1, 7, 13, 31
+#    ]
+#
+#all_stars_one.map {|asq| Appearance.create!(queen_id: asq, season_id: 5)}
+#
+#all_stars_two = #10
+#    [
+#        60, 91, 62, 61, 64, 36, 12, 88, 74, 63, 
+#    ]
+#
+#all_stars_two.map {|asq| Appearance.create!(queen_id: asq, season_id: 10)}
+#
+#all_stars_three = #12
+#    [
+#        92, 90, 20, 16, 77, 104, 131, 81, 106
+#    ]
+#
+#all_stars_three.map {|asq| Appearance.create!(queen_id: asq, season_id: 12)}
+#
+#all_stars_four = #14
+#    [
+#        152, 126, 154, 103, 22, 37, 82, 129, 130, 98
+#    ]
+#
+#all_stars_four.map {|asq| Appearance.create!(queen_id: asq, season_id: 14)}
+#
+#
 
 #Queen.create!(
 #    drag_name: "Alyssa Edwards",
