@@ -83,7 +83,9 @@ class Queen < ApplicationRecord
                     imdb: queen_imdb, 
                     wikipedia: queen_wikipedia,
                     trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
-                    quotes_attributes: queen_quotes.map {|quote| {content: quote}}, 
+                    quotes_attributes: queen_quotes.map {|quote| {content: quote}},
+                    #### would rather use something like this and remove hardcoding from seed.rb 
+                    #appearances_attributes: queen_seasons.map {|season| [season_id: Season.find_by(season_name: season)]}
                     appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0]).id],
                   )
         end
