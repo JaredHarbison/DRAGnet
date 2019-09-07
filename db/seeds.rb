@@ -57,7 +57,7 @@ Queen.new.get_queens
 #
 #Appearance.create!(queen_id: 20, season_id: 3) # Shangela Season 3
 #Appearance.create!(queen_id: 110, season_id: 10) # Cynthia Lee Fontaine Season 9
-#Appearance.create!(queen_id: 133, season_id: 12) # Eureka O'Hara Season 10
+#Appearance.create!(queen_id: 133, season_id: 13) # Eureka O'Hara Season 10
 #Appearance.create!(queen_id: 160, season_id: 15) # Vanessa Vanjie Mateo Season 11
 #
 #all_stars_one = #5
