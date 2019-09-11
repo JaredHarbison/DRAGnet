@@ -1,7 +1,7 @@
 class Queen < ApplicationRecord
     has_many :trivia, dependent: :destroy
     has_many :quotes, dependent: :destroy
-    has_many :appearances
+    has_many :appearances, dependent: :destroy 
     has_many :seasons, through: :appearances
     accepts_nested_attributes_for :trivia, :quotes, :seasons, :appearances
 
@@ -58,15 +58,15 @@ class Queen < ApplicationRecord
         
             queen_wikipedia = queen_doc.xpath('//a[text()="Wikipedia"]').attribute('href')
         
-            queen_trivia = queen_doc.xpath('//*[preceding::*[@id="Trivia"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
+            #queen_trivia = queen_doc.xpath('//*[preceding::*[@id="Trivia"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
         
-            variable_fandom_quotes = queen_doc.xpath('//*[preceding::*[@id="Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+            #variable_fandom_quotes = queen_doc.xpath('//*[preceding::*[@id="Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            variable_memorable_quotes = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+            #variable_memorable_quotes = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            variable_memorable_quotes_C2A0 = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes.C2.A0"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+            #variable_memorable_quotes_C2A0 = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes.C2.A0"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            queen_quotes = variable_fandom_quotes + variable_memorable_quotes + variable_memorable_quotes_C2A0  
+            #queen_quotes = variable_fandom_quotes + variable_memorable_quotes + variable_memorable_quotes_C2A0  
         
             Queen.create!(drag_name: queen_drag_name,
                     real_name: queen_real_name,
@@ -82,11 +82,11 @@ class Queen < ApplicationRecord
                     website: queen_website,
                     imdb: queen_imdb, 
                     wikipedia: queen_wikipedia,
-                    trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
-                    quotes_attributes: queen_quotes.map {|quote| {content: quote}},
+                    #trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
+                    #quotes_attributes: queen_quotes.map {|quote| {content: quote}},
                     #### would rather use something like this and remove hardcoding from seed.rb 
                     #appearances_attributes: queen_seasons.map {|season| [season_id: Season.find_by(season_name: season)]}
-                    appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0]).id],
+                    #appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0]).id],
                   )
         end
     end
