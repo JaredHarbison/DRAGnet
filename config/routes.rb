@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       resources :seasons
       resources :trivia
       resources :quotes
-      resources :episodes
     end 
   end
   resources :users

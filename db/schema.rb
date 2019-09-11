@@ -10,23 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_175509) do
+ActiveRecord::Schema.define(version: 2019_07_30_171149) do
 
   create_table "appearances", force: :cascade do |t|
     t.integer "queen_id"
-    t.integer "episode_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["episode_id"], name: "index_appearances_on_episode_id"
-    t.index ["queen_id"], name: "index_appearances_on_queen_id"
-  end
-
-  create_table "episodes", force: :cascade do |t|
     t.integer "season_id"
-    t.string "episode_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["season_id"], name: "index_episodes_on_season_id"
+    t.index ["queen_id"], name: "index_appearances_on_queen_id"
+    t.index ["season_id"], name: "index_appearances_on_season_id"
   end
 
   create_table "queens", force: :cascade do |t|
