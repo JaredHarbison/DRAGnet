@@ -45,7 +45,7 @@
 #)#15
 
 Season.new.get_seasons
-Queen.new.get_queens
+#Queen.new.get_queens
 
 #duplicate_queens = 
 #    [
