@@ -4,5 +4,5 @@ class QueenSerializer < ActiveModel::Serializer
                :instagram, :twitter, :facebook, :youtube, :website, :imdb, :wikipedia
     has_many :trivia
     has_many :quotes
-    has_many :seasons, through: :appearances
+    has_many :episodes, through: :appearances
   end
