@@ -1,4 +1,4 @@
 class SeasonSerializer < ActiveModel::Serializer
-  attributes :id, :season_name
-  has_many :queens, through: :appearances
+  attributes :season_name, :id
+  has_many :episodes, include_nested_associations: true
 end

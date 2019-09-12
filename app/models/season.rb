@@ -1,9 +1,8 @@
 class Season < ApplicationRecord
   has_many :episodes
-  has_many :appearances
-  has_many :queens, through: :appearances 
   accepts_nested_attributes_for :episodes
-  accepts_nested_attributes_for :appearances
+
+  has_many :appearances 
 
   def get_seasons 
     I18n.enforce_available_locales = false 

@@ -1,9 +1,9 @@
 class Queen < ApplicationRecord
-    has_many :trivia, dependent: :destroy
-    has_many :quotes, dependent: :destroy
-    has_many :appearances, dependent: :destroy 
-    has_many :seasons, through: :appearances
-    accepts_nested_attributes_for :trivia, :quotes, :seasons, :appearances
+  has_many :trivia, dependent: :destroy
+  has_many :quotes, dependent: :destroy
+  has_many :appearances, dependent: :destroy 
+  has_many :episodes, through: :appearances
+  accepts_nested_attributes_for :trivia, :quotes, :episodes, :appearances
 
     def get_queens
 
