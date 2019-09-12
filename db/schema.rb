@@ -15,10 +15,12 @@ ActiveRecord::Schema.define(version: 2019_09_11_225233) do
   create_table "appearances", force: :cascade do |t|
     t.integer "queen_id"
     t.integer "episode_id"
+    t.integer "season_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["episode_id"], name: "index_appearances_on_episode_id"
     t.index ["queen_id"], name: "index_appearances_on_queen_id"
+    t.index ["season_id"], name: "index_appearances_on_season_id"
   end
 
   create_table "episodes", force: :cascade do |t|

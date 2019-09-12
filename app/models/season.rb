@@ -31,18 +31,17 @@ class Season < ApplicationRecord
       season_id = index + 1 
       season_episodes = season_doc.xpath('//*[@id="mw-content-text"]/div/table[3]/tbody/tr[1]/th/text() | //*[@id="mw-content-text"]/div/table[3]/tbody/tr[1]/th/b/text()').map {|episode| episode.text}
       season_episodes = season_episodes.reject {|episode| episode.length > 3 || episode.blank?}
-      season_episodes.map {|episode| Episode.create(season_id: season_id, episode_name: episode)}
       season_contestants = season_doc.xpath('//*[@id="mw-content-text"]/div/table[3]/tbody/tr/td[1]/b').map {|contestant| contestant.text}
-      
-      season_contestants.map do |contestant|
-        season_episodes.map do |episode|
+      season_episodes.map do |episode| 
+        Episode.create(season_id: season_id, episode_name: episode)
+        season_contestants.map do |contestant| 
           Appearance.create(
-            queen_id: Queen.find_by(drag_name: contestant), 
-            episode_id: Episode.find_by(episode_name: episode)
+            season_id: season_id, 
+            episode_id: Episode.find_by(season_id: season_id, episode_name: episode), 
+            queen_id: Queen.find_by(drag_name: contestant)
           )
         end 
       end 
-      
     end 
       
 ####      season_contestants.map {|contestant| Queen.find_or_create_by(drag_name: contestant)}
