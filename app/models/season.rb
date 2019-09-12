@@ -2,7 +2,6 @@ class Season < ApplicationRecord
   has_many :episodes
   accepts_nested_attributes_for :episodes
 
-  has_many :appearances 
 
   def get_seasons 
     I18n.enforce_available_locales = false 
@@ -34,16 +33,26 @@ class Season < ApplicationRecord
       season_episodes = season_episodes.reject {|episode| episode.length > 3 || episode.blank?}
       season_episodes.map {|episode| Episode.create(season_id: season_id, episode_name: episode)}
       season_contestants = season_doc.xpath('//*[@id="mw-content-text"]/div/table[3]/tbody/tr/td[1]/b').map {|contestant| contestant.text}
-      season_contestants.map {|contestant| Queen.find_or_create_by(drag_name: contestant)}
-      #### for each episode, create an appearance by each queen in the season
-      season_episodes.map {|episode| Appearance.create(
-        episode_id: Episode.find_by(episode_name: episode).id, 
-        queen_id: "1"
-      )}
+      
+      season_contestants.map do |contestant|
+        season_episodes.map do |episode|
+          Appearance.create(
+            queen_id: Queen.find_by(drag_name: contestant), 
+            episode_id: Episode.find_by(episode_name: episode)
+          )
+        end 
+      end 
+      
     end 
+      
+####      season_contestants.map {|contestant| Queen.find_or_create_by(drag_name: contestant)}
+      #### for each episode, create an appearance by each queen in the season
+####      season_episodes.map {|episode| Appearance.create(
+####        episode_id: Episode.find_by(episode_name: episode).id, 
+####        queen_id: "1"
+####      )}
+####    end 
 
   end
-
-
 
 end

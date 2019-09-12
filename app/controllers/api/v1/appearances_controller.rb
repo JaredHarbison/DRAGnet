@@ -46,7 +46,7 @@ class Api::V1::AppearancesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def appearance_params
-      params.require(:appearance).permit(:id, :queen_id, :season_id)
-      #params.fetch(:appearance, {})
+      #params.require(:appearance).permit(:id, :queen_id, :episode_id)
+      params.fetch(:appearance, {})
     end
 end
