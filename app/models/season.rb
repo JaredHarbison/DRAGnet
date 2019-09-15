@@ -31,27 +31,15 @@ class Season < ApplicationRecord
       season_id = index + 1 
       season_episodes = season_doc.xpath('//*[@id="mw-content-text"]/div/table[3]/tbody/tr[1]/th/text() | //*[@id="mw-content-text"]/div/table[3]/tbody/tr[1]/th/b/text()').map {|episode| episode.text}
       season_episodes = season_episodes.reject {|episode| episode.length > 3 || episode.blank?}
-      season_contestants = season_doc.xpath('//*[@id="mw-content-text"]/div/table[3]/tbody/tr/td[1]/b').map {|contestant| contestant.text}
-      season_episodes.map do |episode| 
-        Episode.create(season_id: season_id, episode_name: episode)
-        season_contestants.map do |contestant| 
-          Appearance.create(
-            season_id: season_id, 
-            episode_id: Episode.find_by(season_id: season_id, episode_name: episode), 
-            queen_id: Queen.find_by(drag_name: contestant)
-          )
-        end 
+      season_episodes_codes = season_episodes.map {|episode| "S" + season_id.to_s + "E" + episode.to_s}
+      season_contestants = season_doc.xpath('//*[@id="mw-content-text"]/div/table[3]/tbody/tr/td[1]/b').map {|contestant| contestant.text.downcase}
+      season_episodes.map.with_index do |episode, index|
+        Episode.create(
+          season_id: season_id, 
+          episode_name: episode,
+          episode_code: season_episodes_codes[index]
+        )
       end 
     end 
-      
-####      season_contestants.map {|contestant| Queen.find_or_create_by(drag_name: contestant)}
-      #### for each episode, create an appearance by each queen in the season
-####      season_episodes.map {|episode| Appearance.create(
-####        episode_id: Episode.find_by(episode_name: episode).id, 
-####        queen_id: "1"
-####      )}
-####    end 
-
   end
-
 end

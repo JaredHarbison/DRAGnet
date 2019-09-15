@@ -11,7 +11,7 @@ class Queen < ApplicationRecord
         queen_index_doc = Nokogiri::HTML(open(queen_index_url))
         queen_list = queen_index_doc.css('.tabber').last.css('.thumbimage')
         cleaned_queen_index = queen_list.select.with_index {|_, i| i.even?}
-        cleaned_queen_index[1..185].each do |queen|
+        cleaned_queen_index[0..185].each.with_index do |queen, index|
 
             I18n.enforce_available_locales = false
             queen_url = "https://rupaulsdragrace.fandom.com/wiki/#{queen.attr("title")}"
@@ -22,7 +22,7 @@ class Queen < ApplicationRecord
               '//*[@data-source="Season"]/div[@class="pi-data-value pi-font"]/a')
               .map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            queen_drag_name = queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(2) > div").text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '')
+            queen_drag_name = queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(2) > div").text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '').downcase
         
             queen_real_name = queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(3) > div").text.split(' ').join(' ')
         
@@ -85,6 +85,7 @@ class Queen < ApplicationRecord
                     #trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
                     #quotes_attributes: queen_quotes.map {|quote| {content: quote}},
                     #### would rather use something like this and remove hardcoding from seed.rb 
+
                     #appearances_attributes: queen_seasons.map {|season| [season_id: Season.find_by(season_name: season)]}
                     #appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0]).id],
                   )
