@@ -37,7 +37,7 @@ class Season < ApplicationRecord
         Episode.create(
           season_id: season_id, 
           episode_name: episode,
-          episode_code: season_episodes_codes[index]
+          episode_code: season_episodes_codes[index],
         )
       end 
     end 
