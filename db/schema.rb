@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_09_11_225233) do
   create_table "episodes", force: :cascade do |t|
     t.string "episode_code"
     t.string "episode_name"
+    t.string "contestants"
     t.integer "season_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

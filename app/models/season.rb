@@ -14,6 +14,7 @@ class Season < ApplicationRecord
 #### define an array of urls for each season, distinguishing between the original series and All Stars
     seasons_urls = seasons_list.map do |season| 
       if season.starts_with?("All Stars")
+#### remove the numbers from the end of the season name to concatenate them into the url
         all_stars_season = season[-1, 1]
         season_url = "https://en.wikipedia.org/wiki/RuPaul%27s_Drag_Race_All_Stars_(season_#{all_stars_season})"
       else 
@@ -25,19 +26,24 @@ class Season < ApplicationRecord
         season_url = "https://en.wikipedia.org/wiki/RuPaul%27s_Drag_Race_(season_#{rpdr_season})"
       end 
     end 
-#### iterate through the urls to update each Season with the appropriate attributes
+#### iterate through the season urls to open each one with Nokogiri
     seasons_urls.map.with_index do |season, index|
       season_doc = Nokogiri::HTML(open(season))
       season_id = index + 1 
+#### scrape the seasons's episode header row and reject any empty cells
       season_episodes = season_doc.xpath('//*[@id="mw-content-text"]/div/table[3]/tbody/tr[1]/th/text() | //*[@id="mw-content-text"]/div/table[3]/tbody/tr[1]/th/b/text()').map {|episode| episode.text}
       season_episodes = season_episodes.reject {|episode| episode.length > 3 || episode.blank?}
+#### create a unique episode identiefier (i.e. S4E10) to avoid future collisions
       season_episodes_codes = season_episodes.map {|episode| "S" + season_id.to_s + "E" + episode.to_s}
+#### scrape the contestants list to store in the episode object for easier appearance creation
       season_contestants = season_doc.xpath('//*[@id="mw-content-text"]/div/table[3]/tbody/tr/td[1]/b').map {|contestant| contestant.text.downcase}
+#### iterate through the episodes array to create each Episode
       season_episodes.map.with_index do |episode, index|
         Episode.create(
           season_id: season_id, 
           episode_name: episode,
           episode_code: season_episodes_codes[index],
+          contestants: season_contestants_ids
         )
       end 
     end 
