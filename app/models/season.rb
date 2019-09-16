@@ -43,6 +43,7 @@ class Season < ApplicationRecord
           season_id: season_id, 
           episode_name: episode,
           episode_code: season_episodes_codes[index],
+          contestants: season_contestants 
         )
       end 
     end 

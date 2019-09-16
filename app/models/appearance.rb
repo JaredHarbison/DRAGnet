@@ -1,8 +1,8 @@
 class Appearance < ApplicationRecord
   belongs_to :queen
   belongs_to :episode 
-  belongs_to :season
-
+  belongs_to :season  
+  
   #### pull all seasons
 
   #### pull all contestants per season
@@ -16,22 +16,23 @@ class Appearance < ApplicationRecord
   ####)
 
   def get_appearances 
+  #### grab all seasons and their episodes, iterate through the episodes with their index
     seasons = Season.all
     seasons.each.with_index do |season, sid|
       episodes = season.episodes
-      
       episodes.each.with_index do |episode, eid| 
         contestants = episode.contestants 
-        byebug
-        contestants.each do |contestant, cid| 
-          byebug
+        queens = contestants.split(", ")
+        
+        queens.map.with_index do |queen, cid| 
           Appearance.create(
             season_id: Season.find(sid + 1), 
             episode_id: Episode.find(eid + 1), 
-            queen_id: Queen.find_by(drag_name: contestant)
+            queen_id: Queen.find_by(drag_name: queen)
           )
-          byebug
+          
         end
+        
       end 
     end 
   end 
