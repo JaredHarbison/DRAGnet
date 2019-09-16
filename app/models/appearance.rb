@@ -3,6 +3,18 @@ class Appearance < ApplicationRecord
   belongs_to :episode 
   belongs_to :season
 
+  #### pull all seasons
+
+  #### pull all contestants per season
+
+  #### pull all episodes per season
+
+  #### Appearance.create(
+  ####  season_id: , 
+  ####  episode_id: , 
+  ####  queen_id: 
+  ####)
+
   def get_appearances 
     seasons = Season.all
     seasons.each.with_index do |season, sid|

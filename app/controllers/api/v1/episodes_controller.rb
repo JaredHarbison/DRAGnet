@@ -51,7 +51,8 @@ class Api::V1::EpisodesController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def episode_params
-        params.require(:episode).permit(:id, :queen_id, :content)
+        params.require(:episode).permit(:id, :queen_id, :content, 
+                                        appearances_attributes: [:queen_id, :season_id], )
       #  params.fetch(:episode, {})
       end
   end
