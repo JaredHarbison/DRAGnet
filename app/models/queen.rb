@@ -3,7 +3,7 @@ class Queen < ApplicationRecord
   has_many :quotes, dependent: :destroy
   has_many :appearances
   has_many :episodes, through: :appearances
-  accepts_nested_attributes_for :trivia, :quotes, :episodes
+  accepts_nested_attributes_for :trivia, :quotes, :episodes, :appearances
 
     def get_queens
 
@@ -11,19 +11,33 @@ class Queen < ApplicationRecord
         queen_index_doc = Nokogiri::HTML(open(queen_index_url))
         queen_list = queen_index_doc.css('.tabber').last.css('.thumbimage')
         cleaned_queen_index = queen_list.select.with_index {|_, i| i.even?}
+#### !!!! still need to remove duplicate queens
         cleaned_queen_index[0..185].each.with_index do |queen, index|
 
             I18n.enforce_available_locales = false
             queen_url = "https://rupaulsdragrace.fandom.com/wiki/#{queen.attr("title")}"
             cleaned_queen_url = I18n.transliterate(queen_url).split(' ').join('_').gsub(/\(.+/, '')
             queen_doc = Nokogiri::HTML(open(cleaned_queen_url))
-        
+#### !!!! add the second level of queen_seasons xpath lookup to dev.to gist       
             queen_seasons = queen_doc.xpath(
-              '//*[@data-source="Season"]/div[@class="pi-data-value pi-font"]/a')
+              '//*[@data-source="Season"]/div[@class="pi-data-value pi-font"]/a | 
+               //*[@data-source="Season"]/div[@class="pi-data-value pi-font"]/p/a')
               .map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
-        
+#### !!!! add the queen_seasons_ids method to dev.to gist    
+    #        queen_seasons_ids = queen_seasons.map {|season| Season.find_by(season_name: season).id}
+
+    #        queen_seasons_episodes = queen_seasons_ids.map {|season| Season.find(season).episodes}
+            
+    #        queen_seasons_episodes_ids_pre_reduce = queen_seasons_episodes.map {|episode| episode.ids}
+            
+    #        queen_seasons_episodes_ids = queen_seasons_episodes_ids_pre_reduce.reduce(:+)
+
+    #        queen_seasons_episodes_codes = queen_seasons_episodes_ids.map {|episode| Episode.find(episode).episode_code}
+      
             queen_drag_name = queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(2) > div").text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '').downcase
-        
+            
+            queen_id = index + 1
+
             queen_real_name = queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(3) > div").text.split(' ').join(' ')
         
             queen_primary_image = queen_doc.css('#mw-content-text > aside > figure > a').attribute('href') || queen_doc.css('#pi-tab-0 > figure > a > img').attribute('src')
@@ -68,7 +82,8 @@ class Queen < ApplicationRecord
         
             #queen_quotes = variable_fandom_quotes + variable_memorable_quotes + variable_memorable_quotes_C2A0  
         
-            Queen.create!(drag_name: queen_drag_name,
+            Queen.create!(
+                    drag_name: queen_drag_name,
                     real_name: queen_real_name,
                     primary_image: queen_primary_image,
                     date_of_birth: queen_date_of_birth,
@@ -82,12 +97,11 @@ class Queen < ApplicationRecord
                     website: queen_website,
                     imdb: queen_imdb, 
                     wikipedia: queen_wikipedia,
+                    #seasons_ids: queen_seasons_ids,
+                    #appearances_attributes: queen_seasons_episodes_codes.map {|episode| {episode_id: Episode.find_by(episode_code: episode)}}
                     #trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
                     #quotes_attributes: queen_quotes.map {|quote| {content: quote}},
                     #### would rather use something like this and remove hardcoding from seed.rb 
-
-                    #appearances_attributes: queen_seasons.map {|season| [season_id: Season.find_by(season_name: season)]}
-                    #appearances_attributes: [season_id: Season.find_by(season_name: queen_seasons[0]).id],
                   )
         end
     end

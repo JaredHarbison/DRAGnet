@@ -44,8 +44,8 @@
 #    season_name: "Season 11",
 #)#15
 
-Queen.new.get_queens
 Season.new.get_seasons 
+Queen.new.get_queens
 
 #duplicate_queens = 
 #    [

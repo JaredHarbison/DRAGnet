@@ -16,6 +16,7 @@ class CreateQueens < ActiveRecord::Migration[5.2]
       t.string :wikipedia 
       t.date :date_of_birth
       t.integer :age
+      t.integer :seasons_ids, array: true 
       t.timestamps
     end
   end
