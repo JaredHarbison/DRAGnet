@@ -23,9 +23,9 @@ class Appearance < ApplicationRecord
       episodes = season.episodes
       episodes.each.with_index do |episode, eid| 
         episode_id = episode.id
-        contestants = episode.contestants 
+        contestants = episode.contestants
         queens = contestants.split(", ")
-        cleaned_queens = queens.map {|queen| queen.gsub(/[^0-9a-z%&!\n\/(). ]/i, '')}
+        cleaned_queens = queens.map {|queen| queen.gsub(/[^0-9a-z%&!\n\/(). ]/i, '').downcase}
         cleaner_queens = cleaned_queens.map do |queen|
           if queen[-1] === " "
             queen.delete_suffix!(" ")

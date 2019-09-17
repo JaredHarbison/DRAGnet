@@ -60,7 +60,7 @@ class Season < ApplicationRecord
       season_episodes_codes = episode_numbers.map {|episode| "S" + season_id.to_s + "E" + episode.to_s}
 #### scrape the contestants list to store in the episode object for easier appearance creation
 #### !!!! find the column with a header word that starts with "contest", return the index, and use the index to find the contestants
-      season_contestants = season_doc.xpath(contestants_column_xpath).map {|header| header.text}
+      season_contestants = season_doc.xpath(contestants_column_xpath).map {|header| header.text.downcase}
       
       #season_contestants = season_doc.xpath('//*[@id="mw-content-text"]/div/table[3]/tbody/tr/td[1]/b').map {|contestant| contestant.text.downcase}
 #### iterate through the episodes array to create each Episode
