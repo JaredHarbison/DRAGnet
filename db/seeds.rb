@@ -46,6 +46,7 @@
 
 Season.new.get_seasons 
 Queen.new.get_queens
+Appearance.new.get_appearances
 
 #duplicate_queens = 
 #    [
