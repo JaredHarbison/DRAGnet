@@ -25,6 +25,7 @@ class Season < ApplicationRecord
         season_url = "https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_#{rpdr_season})"
       end 
     end 
+    
     seasons_list.each.with_index do |season, index| 
       Season.create!(
         season_name: season, 
@@ -35,6 +36,10 @@ class Season < ApplicationRecord
     seasons_urls.map.with_index do |season, index|
       season_doc = Nokogiri::HTML(open(season))
       season_id = index + 1 
+      season_premiere = season_doc.xpath('//*[@data-source="premiere"]/div[@class="pi-data-value pi-font"]/text()').text
+      season_finale = season_doc.xpath('//*[@data-source="finale"]/div[@class="pi-data-value pi-font"]/text()').text
+      season_judges = season_doc.xpath('//*[@data-source="judges"]/div[@class="pi-data-value pi-font"]/a/text()').map {|judge| judge.text}
+      
 #### scrape the seasons's episode header row from the progress table and reject any empty cells
       table_headers = season_doc.xpath('//*[@class="wikitable"]//following-sibling::th').map {|episode| episode.text}
 #### find the contestants column, identify the index integer, then add 1 and turn it into a string to prepare for xPath
@@ -50,8 +55,10 @@ class Season < ApplicationRecord
 #### find the episode title column, identify the index integer, then add 1 and turn it into a string to prepare for xPath
       episodes_table_headers = season_doc.xpath('//center/table[@class="wikitable"]//th').map {|episode| episode.text}
       find_episode_title_column = episodes_table_headers.map.with_index do |header, index| 
-        header.starts_with?("Title")
+        header.starts_with?("Title", " Episode Title")# || header.starts_with?("Episode Title")
       end 
+      
+      
       title_column_index = find_episode_title_column.find_index(true)
       title_column_number = title_column_index.to_i + 1
       title_column_number_string = title_column_number.to_s 
