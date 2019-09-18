@@ -25,7 +25,7 @@ class Appearance < ApplicationRecord
         episode_id = episode.id
         contestants = episode.contestants
         queens = contestants.split(", ")
-        cleaned_queens = queens.map {|queen| queen.gsub(/[^0-9a-z%&!\n\/(). ]/i, '').downcase}
+        cleaned_queens = queens.map {|queen| queen.gsub(/[^0-9a-z%&!\n\/(). ]/i, '')}
         cleaner_queens = cleaned_queens.map do |queen|
           if queen[-1] === " "
             queen.delete_suffix!(" ")

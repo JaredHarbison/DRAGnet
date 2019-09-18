@@ -34,7 +34,7 @@ class Queen < ApplicationRecord
 
     #        queen_seasons_episodes_codes = queen_seasons_episodes_ids.map {|episode| Episode.find(episode).episode_code}
       
-            queen_drag_name = queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(2) > div").text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '').downcase
+            queen_drag_name = queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(2) > div").text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '')
             
             queen_id = index + 1
 
