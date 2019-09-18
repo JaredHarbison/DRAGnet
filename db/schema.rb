@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_09_11_225233) do
   create_table "appearances", force: :cascade do |t|
     t.integer "queen_id"
     t.integer "episode_id"
+    t.integer "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["episode_id"], name: "index_appearances_on_episode_id"
@@ -26,6 +27,13 @@ ActiveRecord::Schema.define(version: 2019_09_11_225233) do
     t.string "episode_name"
     t.string "episode_number"
     t.text "contestants"
+    t.date "air_date"
+    t.string "maxi_challenge"
+    t.string "maxi_challenge_winner"
+    t.string "mini_challenge"
+    t.string "mini_challenge_winner"
+    t.string "guest_judges"
+    t.string "lip_sync_song"
     t.integer "season_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,6 +70,11 @@ ActiveRecord::Schema.define(version: 2019_09_11_225233) do
 
   create_table "seasons", force: :cascade do |t|
     t.string "season_name"
+    t.date "premeire_date"
+    t.date "finale_date"
+    t.string "judges"
+    t.string "fandom_season_url"
+    t.string "wiki_season_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

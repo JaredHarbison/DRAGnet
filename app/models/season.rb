@@ -10,7 +10,6 @@ class Season < ApplicationRecord
     seasons_index_doc = Nokogiri::HTML(open(seasons_index_url))
 #### define an array of season names and instantiate an object for each name
     seasons_list = seasons_index_doc.xpath('//td[1]/a[1]').map {|season| season.text}
-    seasons_list.each {|season| Season.create!(season_name: season)}
 #### define an array of urls for each season, distinguishing between the two series
     seasons_urls = seasons_list.map do |season| 
       if season.starts_with?("All Stars")
@@ -25,6 +24,12 @@ class Season < ApplicationRecord
         end 
         season_url = "https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_#{rpdr_season})"
       end 
+    end 
+    seasons_list.each.with_index do |season, index| 
+      Season.create!(
+        season_name: season, 
+        fandom_season_url: seasons_urls[index]
+      )
     end 
 #### iterate through the season urls to open each one with Nokogiri and predict the season ids
     seasons_urls.map.with_index do |season, index|
