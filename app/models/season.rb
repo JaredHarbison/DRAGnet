@@ -51,13 +51,13 @@ class Season < ApplicationRecord
       contestants_column_number_string = contestants_column_number.to_s
 #### concatenate the column index into the xPath string and pull the contestants from the column
       contestants_column_xpath = '//*[@id="mw-content-text"]//td[' + contestants_column_number_string + ']/b/a'
-      season_contestants = season_doc.xpath(contestants_column_xpath).map {|header| header.text.downcase}
-#### find the episode title column, identify the index integer, then add 1 and turn it into a string to prepare for xPath
+#### !!!! need to def contestants_ranks and add them to each contestant in the season_contestants array
+      season_contestants = season_doc.xpath(contestants_column_xpath).map {|header| header.text.downcase.gsub(/[^0-9a-z%&!\n\/(). ]/i, '').strip}
+      #### find the episode title column, identify the index integer, then add 1 and turn it into a string to prepare for xPath
       episodes_table_headers = season_doc.xpath('//center/table[@class="wikitable"]//th').map {|episode| episode.text}
       find_episode_title_column = episodes_table_headers.map.with_index do |header, index| 
         header.starts_with?("Title", " Episode Title")# || header.starts_with?("Episode Title")
       end 
-      
       
       title_column_index = find_episode_title_column.find_index(true)
       title_column_number = title_column_index.to_i + 1
@@ -76,7 +76,22 @@ class Season < ApplicationRecord
           episode = ""
         end 
       end 
+
+      #'//*[preceding::*[@id="mw-content-text"]/div[4]/div[1]/table/tbody/tr[2] and following::*[@id="mw-content-text"]/div[4]/div[1]/table/tbody/tr[2]]//following-sibling::td'
+      #//*[@id="mw-content-text"]/div[4]/div[1]/table/tbody/tr[3]/td[3]
+
+      episode_indices = episode_number_headers.map.with_index {|header, index| header.to_i >= 1 ? index : ""}
+      episode_indices.reject! {|x| x.blank?}
+      queen_row = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr[2]/td').map {|el| el.text.squish}
       
+#      queens_ranks = season_contestants.map.with_index do |queen, index|
+#        queen_row.map.with_index do |cell, cid|
+#          if queen_row[contestants_column_index] == queen 
+#            queens_ranks = queen_row[episode_indices_range]
+#         end 
+#        end 
+#      end  
+
       episode_numbers = episode_number_headers.reject {|episode| episode.blank?} #.gsub(/[^0-9]/, '')
 #### create unique episode keys of the same length (i.e. S04E10) to avoid future collisions
       season_episodes_codes = episode_numbers.map do |episode| 
@@ -90,6 +105,13 @@ class Season < ApplicationRecord
           "S" + season_id.to_s + "E" + episode.to_s 
         end
       end 
+      #episode_air_date = 
+      #maxi_challenge = 
+      #maxi_challenge_winner = 
+      #mini_challenge = 
+      #mini_challenge_winner = 
+      #guest_judges = 
+      #lip_sync_song = 
 #### iterate through the episodes array to create each Episode
       episode_numbers.map.with_index do |episode, index|
         Episode.create(
