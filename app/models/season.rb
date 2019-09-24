@@ -82,20 +82,47 @@ class Season < ApplicationRecord
 
       episode_indices = episode_number_headers.map.with_index {|header, index| header.to_i >= 1 ? index : ""}
       episode_indices.reject! {|x| x.blank?}
-      #one = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr/td[7]').map {|el| el.text.squish}
-      two = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr[2]/td').map {|el| el.text.squish}
-      three = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr[3]/td').map {|el| el.text.squish}
-      four = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr[4]/td').map {|el| el.text.squish}
-      queen_row = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr/td[7]').map {|el| el.text.squish}
-      
-      queens_ranks = season_contestants.map.with_index do |queen, index|
-        queen_row.map.with_index do |cell, cid|
-          if queen_row[contestants_column_index] == queen 
-            queens_ranks = queen_row[episode_indices_range]
-         end 
+      episode_indices_range = episode_indices.first..episode_indices.last #will need .to_s
+      row_numbers = season_contestants.map.with_index {|cont, index| index + 2}
+      row_lookups = row_numbers.map do |row| 
+        '//*[@class="wikitable"]//following-sibling::tr['+row.to_s+']/td'
+      end 
+      deez_lookups = row_lookups.map do |lookup| 
+        season_doc.xpath(lookup).map {|el| el.text.squish}
+      end 
+      deez_ranks = deez_lookups.map do |lookup| 
+        lookup[episode_indices_range]
+      end 
+
+      final_ranks = deez_ranks.map do |ranks|
+        ranks.map do |rank|
+          if rank.include?("WINNER") 
+            final_ranks = 10
+          elsif rank.include?("RUNUP" || "LOST") 
+            final_ranks = 9
+          elsif rank.include?("MISSCON") 
+            final_ranks = 8
+          elsif rank.include?("WIN") 
+            final_ranks = 7
+          elsif rank.include?("HIGH") 
+            final_ranks = 6
+          elsif rank.include?("TOP") 
+            final_ranks = 5
+          elsif rank.include?("SAFE"|| "RUNNING") 
+            final_ranks = 4
+          elsif rank.include?("LOW") 
+            final_ranks = 3
+          elsif rank.include?("BTM") 
+            final_ranks = 2
+          elsif rank.include?("ELIM" || "OUT" || "JUROR" || "RTRN") 
+            final_ranks = 1
+          else 
+            final_ranks = 0
+          end 
         end 
-      end  
-byebug
+      end 
+      season_contestants = season_contestants.zip(final_ranks)
+
       episode_numbers = episode_number_headers.reject {|episode| episode.blank?} #.gsub(/[^0-9]/, '')
 #### create unique episode keys of the same length (i.e. S04E10) to avoid future collisions
       season_episodes_codes = episode_numbers.map do |episode| 

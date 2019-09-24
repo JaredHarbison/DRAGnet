@@ -23,17 +23,6 @@ class Queen < ApplicationRecord
               '//*[@data-source="Season"]/div[@class="pi-data-value pi-font"]/a | 
                //*[@data-source="Season"]/div[@class="pi-data-value pi-font"]/p/a')
               .map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
-#### !!!! add the queen_seasons_ids method to dev.to gist    
-    #        queen_seasons_ids = queen_seasons.map {|season| Season.find_by(season_name: season).id}
-
-    #        queen_seasons_episodes = queen_seasons_ids.map {|season| Season.find(season).episodes}
-            
-    #        queen_seasons_episodes_ids_pre_reduce = queen_seasons_episodes.map {|episode| episode.ids}
-            
-    #        queen_seasons_episodes_ids = queen_seasons_episodes_ids_pre_reduce.reduce(:+)
-
-    #        queen_seasons_episodes_codes = queen_seasons_episodes_ids.map {|episode| Episode.find(episode).episode_code}
-      
             queen_drag_name = queen_doc.css("#mw-content-text > aside > section:nth-child(3) > div:nth-child(2) > div").text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '')
             
             queen_id = index + 1
@@ -72,15 +61,15 @@ class Queen < ApplicationRecord
         
             queen_wikipedia = queen_doc.xpath('//a[text()="Wikipedia"]').attribute('href')
         
-            #queen_trivia = queen_doc.xpath('//*[preceding::*[@id="Trivia"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
+            queen_trivia = queen_doc.xpath('//*[preceding::*[@id="Trivia"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
         
-            #variable_fandom_quotes = queen_doc.xpath('//*[preceding::*[@id="Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+            variable_fandom_quotes = queen_doc.xpath('//*[preceding::*[@id="Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            #variable_memorable_quotes = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+            variable_memorable_quotes = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            #variable_memorable_quotes_C2A0 = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes.C2.A0"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+            variable_memorable_quotes_C2A0 = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes.C2.A0"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            #queen_quotes = variable_fandom_quotes + variable_memorable_quotes + variable_memorable_quotes_C2A0  
+            queen_quotes = variable_fandom_quotes + variable_memorable_quotes + variable_memorable_quotes_C2A0  
         
             Queen.create!(
                     drag_name: queen_drag_name,
@@ -97,11 +86,8 @@ class Queen < ApplicationRecord
                     website: queen_website,
                     imdb: queen_imdb, 
                     wikipedia: queen_wikipedia,
-                    #seasons_ids: queen_seasons_ids,
-                    #appearances_attributes: queen_seasons_episodes_codes.map {|episode| {episode_id: Episode.find_by(episode_code: episode)}}
-                    #trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
-                    #quotes_attributes: queen_quotes.map {|quote| {content: quote}},
-                    #### would rather use something like this and remove hardcoding from seed.rb 
+                    trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
+                    quotes_attributes: queen_quotes.map {|quote| {content: quote}},
                   )
         end
     end
