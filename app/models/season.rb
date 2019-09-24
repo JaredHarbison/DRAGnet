@@ -82,16 +82,20 @@ class Season < ApplicationRecord
 
       episode_indices = episode_number_headers.map.with_index {|header, index| header.to_i >= 1 ? index : ""}
       episode_indices.reject! {|x| x.blank?}
-      queen_row = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr[2]/td').map {|el| el.text.squish}
+      #one = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr/td[7]').map {|el| el.text.squish}
+      two = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr[2]/td').map {|el| el.text.squish}
+      three = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr[3]/td').map {|el| el.text.squish}
+      four = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr[4]/td').map {|el| el.text.squish}
+      queen_row = season_doc.xpath('//*[@class="wikitable"]//following-sibling::tr/td[7]').map {|el| el.text.squish}
       
-#      queens_ranks = season_contestants.map.with_index do |queen, index|
-#        queen_row.map.with_index do |cell, cid|
-#          if queen_row[contestants_column_index] == queen 
-#            queens_ranks = queen_row[episode_indices_range]
-#         end 
-#        end 
-#      end  
-
+      queens_ranks = season_contestants.map.with_index do |queen, index|
+        queen_row.map.with_index do |cell, cid|
+          if queen_row[contestants_column_index] == queen 
+            queens_ranks = queen_row[episode_indices_range]
+         end 
+        end 
+      end  
+byebug
       episode_numbers = episode_number_headers.reject {|episode| episode.blank?} #.gsub(/[^0-9]/, '')
 #### create unique episode keys of the same length (i.e. S04E10) to avoid future collisions
       season_episodes_codes = episode_numbers.map do |episode| 
