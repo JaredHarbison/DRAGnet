@@ -21,13 +21,7 @@ const QueenIndexCards = ({ filteredQueens }) => {
                         {queen.drag_name}
                     </div>
                     <div className="ui divider"></div>
-                    <div className="header">
-                        { 
-                        arrayToSentence(queen.seasons
-                            .map (season =>
-                        season.season_name)) 
-                        }
-                    </div>
+
                     <div className="ui divider"></div>
                     <span className="header"></span>
                         <div className="header">
@@ -87,3 +81,10 @@ const QueenIndexCards = ({ filteredQueens }) => {
 };
 
 export default QueenIndexCards;
+//<div className="header">
+//{ 
+//arrayToSentence(queen.seasons
+//    .map (season =>
+//season.season_name)) 
+//}
+//</div>

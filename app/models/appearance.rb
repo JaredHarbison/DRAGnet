@@ -19,7 +19,7 @@ class Appearance < ApplicationRecord
           Appearance.create(
             episode_id: episode_id, 
   #### use the contestants list as it appeared on the season's Fandom page to find the corresponding Queens
-            queen_id: Queen.find_or_create_by(drag_name: contestant).id, 
+            queen_id: Queen.find_or_create_by(drag_name: contestant[0]).id, 
             rank: contestant[rank_index]
           )
         end 

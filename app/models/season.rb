@@ -52,7 +52,7 @@ class Season < ApplicationRecord
 #### concatenate the column index into the xPath string and pull the contestants from the column
       contestants_column_xpath = '//*[@id="mw-content-text"]//td[' + contestants_column_number_string + ']/b/a'
 #### !!!! need to def contestants_ranks and add them to each contestant in the season_contestants array
-      season_contestants = season_doc.xpath(contestants_column_xpath).map {|header| header.text.downcase.gsub(/[^0-9a-z%&!\n\/(). ]/i, '').strip}
+      season_contestants = season_doc.xpath(contestants_column_xpath).map {|header| header.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '').strip}
       #### find the episode title column, identify the index integer, then add 1 and turn it into a string to prepare for xPath
       episodes_table_headers = season_doc.xpath('//center/table[@class="wikitable"]//th').map {|episode| episode.text}
       find_episode_title_column = episodes_table_headers.map.with_index do |header, index| 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SeasonsIndex = ({ rpdrSeasons }) => {
-    const renderSeasons = rpdrSeasons.map(season =>
+const SeasonsIndex = ({ rpdr_seasons }) => {
+    const renderSeasons = rpdr_seasons.map(season =>
         <div className="ui fluid cards" key={season.id}>
             <div className="ui fluid card">
                 <div className="content">

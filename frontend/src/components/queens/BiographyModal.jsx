@@ -16,15 +16,7 @@ const BiographyModal = ({queen}) => (
                verticalalign="middle"
                className="ui small right floated rounded image"/>
         <div className="content">
-            <p>
-                {queen.drag_name || "(info needed)"}
-                {" of "}
-                {arrayToSentence(queen.seasons.map (season => season.season_name))
-                || "(info needed)"}
-                {" currently lives in "}
-                {queen.current_city || "(info needed)"}
-                {".  "}
-            </p>
+
             <p>
                 {"She is "}{(queen.ethnicity) || "(info needed)"}
                 {" and born as "} 
@@ -41,3 +33,13 @@ const BiographyModal = ({queen}) => (
 )
 
 export default BiographyModal
+
+//<p>
+//{queen.drag_name || "(info needed)"}
+//{" of "}
+//{arrayToSentence(queen.seasons.map (season => season.season_name))
+//|| "(info needed)"}
+//{" currently lives in "}
+//{queen.current_city || "(info needed)"}
+//{".  "}
+//</p>
