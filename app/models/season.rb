@@ -144,6 +144,10 @@ class Season < ApplicationRecord
       #guest_judges = 
       #lip_sync_song = 
 #### iterate through the episodes array to create each Episode
+
+
+#### !!!! Episode creation edge case for "Season 10" season_id: 13
+
       episode_numbers.map.with_index do |episode, index|
         Episode.create(
           season_id: season_id, 

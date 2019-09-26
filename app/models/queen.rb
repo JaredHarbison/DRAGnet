@@ -61,15 +61,15 @@ class Queen < ApplicationRecord
         
             queen_wikipedia = queen_doc.xpath('//a[text()="Wikipedia"]').attribute('href')
         
-            queen_trivia = queen_doc.xpath('//*[preceding::*[@id="Trivia"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
+            #queen_trivia = queen_doc.xpath('//*[preceding::*[@id="Trivia"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.split(' ').join(' ').gsub(/[^0-9a-z%&!\n\/(). ]/i, '') }
         
-            variable_fandom_quotes = queen_doc.xpath('//*[preceding::*[@id="Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+            #variable_fandom_quotes = queen_doc.xpath('//*[preceding::*[@id="Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            variable_memorable_quotes = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+            #variable_memorable_quotes = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            variable_memorable_quotes_C2A0 = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes.C2.A0"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
+            #variable_memorable_quotes_C2A0 = queen_doc.xpath('//*[preceding::*[@id="Memorable_Quotes.C2.A0"] and following::*[@class="mw-headline"]]//following-sibling::li').map { |e| e.text.gsub(/[^0-9a-z%&!\n\/(). ]/i, '') } 
         
-            queen_quotes = variable_fandom_quotes + variable_memorable_quotes + variable_memorable_quotes_C2A0  
+            #queen_quotes = variable_fandom_quotes + variable_memorable_quotes + variable_memorable_quotes_C2A0  
         
             Queen.create!(
                     drag_name: queen_drag_name,
@@ -86,8 +86,8 @@ class Queen < ApplicationRecord
                     website: queen_website,
                     imdb: queen_imdb, 
                     wikipedia: queen_wikipedia,
-                    trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
-                    quotes_attributes: queen_quotes.map {|quote| {content: quote}},
+                    #trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
+                    #quotes_attributes: queen_quotes.map {|quote| {content: quote}},
                   )
         end
     end

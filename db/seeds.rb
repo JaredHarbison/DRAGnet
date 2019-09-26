@@ -1,3 +1,11 @@
+Season.new.get_seasons 
+Queen.new.get_queens
+Appearance.new.get_appearances
+
+
+
+
+
 #Season.create!(
 #    season_name: "Season 1",
 #)#1
@@ -43,10 +51,6 @@
 #Season.create!(
 #    season_name: "Season 11",
 #)#15
-
-Season.new.get_seasons 
-Queen.new.get_queens
-Appearance.new.get_appearances
 
 #duplicate_queens = 
 #    [
