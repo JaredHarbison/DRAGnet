@@ -11,6 +11,7 @@ class Season < ApplicationRecord
 #### define an array of season names and instantiate an object for each name
     seasons_list = seasons_index_doc.xpath('//td[1]/a[1]').map {|season| season.text}
 #### define an array of urls for each season, distinguishing between the two series
+#    seasons_urls = ["https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_10)", "https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_6)"]
     seasons_urls = seasons_list.map do |season| 
       if season.starts_with?("All Stars")
 #### remove the numbers from the end of the season name to concatenate them into the url
@@ -70,7 +71,7 @@ class Season < ApplicationRecord
       
 #### iterate through the headers to find the episode columns, pull the episode number, then reject any blanks
       episode_number_headers = table_headers.map do |episode| 
-        if episode.starts_with?("Ep. ", " Ep.")
+        if episode.starts_with?("Ep.", "Ep. ", " Ep.", "  Ep.")
           episode.gsub(/[^0-9]/, '')
         else 
           episode = ""
@@ -143,11 +144,7 @@ class Season < ApplicationRecord
       #mini_challenge_winner = 
       #guest_judges = 
       #lip_sync_song = 
-#### iterate through the episodes array to create each Episode
-
-
-#### !!!! Episode creation edge case for "Season 10" season_id: 13
-
+#### iterate through the episodes array to create each Episode 
       episode_numbers.map.with_index do |episode, index|
         Episode.create(
           season_id: season_id, 
