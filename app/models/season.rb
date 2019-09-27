@@ -138,6 +138,7 @@ class Season < ApplicationRecord
         end
       end 
       #episode_air_date = 
+      #episode_number = 
       #maxi_challenge = 
       #maxi_challenge_winner = 
       #mini_challenge = 

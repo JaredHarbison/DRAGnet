@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SeasonsIndex = ({ rpdr_seasons }) => {
-    const renderSeasons = rpdr_seasons.map(season =>
+const SeasonsIndex = ({ rpdrSeasons }) => {
+    const renderSeasons = rpdrSeasons.map(season =>
         <div className="ui fluid cards" key={season.id}>
             <div className="ui fluid card">
                 <div className="content">
@@ -15,19 +15,12 @@ const SeasonsIndex = ({ rpdr_seasons }) => {
                             {season.season_name} Queens
                         </Link>
                                 </th>
-                                <th colSpan="10" className="">Episodes</th>
+                                <th colSpan={season.episodes.length} className="">Episodes</th>
                             </tr>
                             <tr className="">
-                                <th className="">Ep. 1</th>
-                                <th className="">Ep. 2</th>
-                                <th className="">Ep. 3</th>
-                                <th className="">Ep. 4</th>
-                                <th className="">Ep. 5</th>
-                                <th className="">Ep. 6</th>
-                                <th className="">Ep. 7</th>
-                                <th className="">Ep. 8</th>
-                                <th className="">Ep. 9</th>
-                                <th className="">Ep. 10</th>
+                                {season.episodes.map(episode =>
+                                    <th className="">{episode.episode_code}</th>
+                                )}
                             </tr>
                         </thead>
                         <tbody className="">
@@ -49,7 +42,7 @@ const SeasonsIndex = ({ rpdr_seasons }) => {
                                     <span>{queen.drag_name}</span>
                                 </td>
                             </tr>)}
-                        </tbody>
+                            </tbody>
                     </table>
                 </div>
             </div>
@@ -63,3 +56,28 @@ const SeasonsIndex = ({ rpdr_seasons }) => {
 }
 
 export default SeasonsIndex;
+
+{/*
+
+*/}
+
+{/*<tbody className="">
+{season.queens.map(queen =>
+<tr className="">
+    <td className="">
+        <h4 class="ui image header">
+            <div className="ui fade reveal">
+                <div className="ui visible content">
+                    <img src={queen.primary_image} className="ui small avatar image" />
+                </div>
+                <div className="ui hidden content">
+                    {queen.id}
+                </div>
+            </div>
+        </h4>
+    </td>
+    <td>
+        <span>{queen.drag_name}</span>
+    </td>
+</tr>)}
+</tbody>*/}
