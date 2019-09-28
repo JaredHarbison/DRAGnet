@@ -71,8 +71,8 @@ class Queen < ApplicationRecord
         
             #queen_quotes = variable_fandom_quotes + variable_memorable_quotes + variable_memorable_quotes_C2A0  
         
-            Queen.create!(
-                    drag_name: queen_drag_name,
+            Queen.create_with(
+                    #drag_name: queen_drag_name,
                     real_name: queen_real_name,
                     primary_image: queen_primary_image,
                     date_of_birth: queen_date_of_birth,
@@ -88,7 +88,7 @@ class Queen < ApplicationRecord
                     wikipedia: queen_wikipedia,
                     #trivia_attributes: queen_trivia.map {|trivium| {content: trivium}},
                     #quotes_attributes: queen_quotes.map {|quote| {content: quote}},
-                  )
+                  ).find_or_create_by(drag_name: queen_drag_name)
         end
     end
 end
