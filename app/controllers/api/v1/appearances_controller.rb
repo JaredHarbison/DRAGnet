@@ -1,4 +1,4 @@
-class Api::V1::AppearancesController < ApplicationController
+class Api::V1::AppearancesController < ApiController
   before_action :set_appearance, only: [:show, :update, :destroy]
 
   # GET /appearances

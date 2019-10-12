@@ -1,4 +1,4 @@
-class Api::V1::QuotesController < ApplicationController
+class Api::V1::QuotesController < ApiController
   before_action :set_quote, only: [:show, :update, :destroy]
 
   # GET /quotes

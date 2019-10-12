@@ -175,4 +175,4 @@ Appearance.new.get_appearances
 #    appearances_attributes: [
 #        {season_id: 9}
 #    ]
-#)#
+#)#AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

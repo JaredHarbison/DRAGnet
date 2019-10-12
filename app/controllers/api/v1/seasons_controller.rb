@@ -1,4 +1,4 @@
-class Api::V1::SeasonsController < ApplicationController
+class Api::V1::SeasonsController < ApiController
   before_action :set_season, only: [:show, :update, :destroy]
 
   # GET /seasons

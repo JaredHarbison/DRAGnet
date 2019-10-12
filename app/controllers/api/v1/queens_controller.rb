@@ -1,4 +1,4 @@
-class Api::V1::QueensController < ApplicationController
+class Api::V1::QueensController < ApiController
   before_action :set_queen, only: [:show, :update, :destroy]
 
     def index

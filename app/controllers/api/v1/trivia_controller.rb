@@ -1,4 +1,4 @@
-class Api::V1::TriviaController < ApplicationController
+class Api::V1::TriviaController < ApiController
   before_action :set_trivium, only: [:show, :update, :destroy]
 
   # GET /trivia
