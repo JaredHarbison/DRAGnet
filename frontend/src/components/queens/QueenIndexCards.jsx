@@ -25,41 +25,48 @@ const QueenIndexCards = ({ filteredQueens }) => {
                     <div className="ui divider"></div>
                     <span className="header"></span>
                         <div className="header">
+                            {queen.instagram && 
                             <a  href={queen.instagram}
                                 rel="noopener noreferrer"
                                 target="_blank">
-                                <i className="instagram icon"></i>
-                            </a>
+                                <i className="instagram icon"></i> 
+                            </a> }
+                            {queen.facebook &&
                             <a  href={queen.facebook}
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="facebook icon"></i>
-                            </a>
+                            </a> }
+                            {queen.twitter &&
                             <a  href={queen.twitter}
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="twitter icon"></i>
-                            </a>
+                            </a> }
+                            {queen.youtube &&
                             <a  href={queen.youtube}
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="youtube icon"></i>
-                            </a>
+                            </a> }
+                            {queen.website &&
                             <a  href={queen.website}
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="home icon"></i>
-                            </a>
+                            </a> }
+                            {queen.imdb &&
                             <a  href={queen.imdb}
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="imdb icon"></i>
-                            </a>
+                            </a> }
+                            {queen.wikipedia &&
                             <a  href={queen.wikipedia}
                                 rel="noopener noreferrer"
                                 target="_blank">
                                 <i className="wikipedia w icon"></i>
-                            </a>
+                            </a> }
                         </div>
                         <div className="ui divider"></div>
                     <BiographyModal queen={queen}/>
