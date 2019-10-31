@@ -24,6 +24,10 @@ class Api::V1::QuotesController < ApiController
     end
   end
 
+  def quote_url(quote)
+
+  end 
+
   # PATCH/PUT /quotes/1
   def update
     if @quote.update(quote_params)
@@ -46,6 +50,7 @@ class Api::V1::QuotesController < ApiController
 
     # Only allow a trusted parameter "white list" through.
     def quote_params
-      params.fetch(:quote, {})
+      #params.fetch(:quote, {})
+      params.require(:quote).permit(:id, :queen_id, :content)
     end
 end
