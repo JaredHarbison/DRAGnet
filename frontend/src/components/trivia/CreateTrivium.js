@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addTrivia } from '../../actions/index';
 
 class CreateTrivium extends Component {
-    state = {text: '' , trivia: []};
+    state = {text: '' , trivia: [], drag_queens: []};
 
     handleChange = event => {
           this.setState({ text: event.target.value });
@@ -40,7 +40,7 @@ class CreateTrivium extends Component {
 };
 
 function mapStateToProps(state) {
-    return { state, trivia: [] };
+    return { state, trivia: [], drag_queens: [] };
 };
 
 const mapDispatchToProps = { addTrivia };

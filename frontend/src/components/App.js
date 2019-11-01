@@ -12,6 +12,8 @@ class App extends Component {
     componentDidMount = () => {
         this.props.actions.fetchQueens();
         this.props.actions.fetchSeasons();
+        this.props.actions.fetchQuotes();
+        this.props.actions.fetchTrivia();
     }
 
     render() {
@@ -34,7 +36,9 @@ class App extends Component {
 
     function mapStateToProps(state) {
         return { dragQueens: state.queens.drag_queens, 
-                 rpdrSeasons: state.seasons.rpdr_seasons};
+                 rpdrSeasons: state.seasons.rpdr_seasons, 
+                 rpdrQuotes: state.quotes.rpdr_quotes, 
+                 rpdrTrivia: state.trivia.rpdr_quotes};
     };
 
     const mapDispatchToProps = dispatch => {

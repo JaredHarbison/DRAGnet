@@ -1,8 +1,8 @@
-
-export default {
+export const initialState = {
     loading: false,
     drag_queens: [],
-    trivia: [], 
-    quotes: [], 
+    rpdr_trivia: [], 
+    rpdr_quotes: [], 
     rpdr_seasons: [], 
 }
+

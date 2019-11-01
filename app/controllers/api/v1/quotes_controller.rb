@@ -16,7 +16,6 @@ class Api::V1::QuotesController < ApiController
   # POST /quotes
   def create
     @quote = Quote.new(quote_params)
-
     if @quote.save
       render json: @quote, status: :created, location: @quote
     else

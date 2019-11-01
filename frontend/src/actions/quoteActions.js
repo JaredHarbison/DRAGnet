@@ -1,4 +1,18 @@
-import { ADD_QUEEN_QUOTE, DELETE_QUEEN_QUOTE } from './types'
+import { ADD_QUEEN_QUOTE, DELETE_QUEEN_QUOTE, FETCH_QUOTES, LOADING_QUOTES } from './types'
+
+export const fetchQuotes = () => {
+    return (dispatch) => {
+        dispatch({ type: LOADING_QUOTES })
+        return fetch('/quotes')
+            .then(res => res.json())
+            .then(jsonResponse => {
+                dispatch({
+                    type: FETCH_QUOTES,
+                    payload: jsonResponse
+                })
+            })
+    }
+}
 
 export const addQuote = (quote) => {
     return (dispatch) => {

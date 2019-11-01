@@ -1,15 +1,16 @@
-import { UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM } from './actions/types.js'
+import { UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM } from '../actions/types.js'
 
-import initialState from './initialState';
+import {initialState} from './initialState';
 
-export default function queens_reducer(state = initialState, action) {
+export default function trivia_reducer(state = initialState, action) {
     console.log(action)
     let idx
     let tidx
     switch (action.type) {
 
-      case UPDATE_QUEEN_TRIVIA:
+      case UPDATE_QUEEN_TRIVIA: debugger
         idx = state.drag_queens.indexOf(state.drag_queens.find(q => q.id == action.payload.queen_id))
+        debugger
         return {...state, 
                 drag_queens: [...state.drag_queens.slice(0, idx),
                               {...state.drag_queens[idx],

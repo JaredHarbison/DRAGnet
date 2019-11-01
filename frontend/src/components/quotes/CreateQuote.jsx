@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addQuote } from '../../actions/index';
-import initialState from '../../reducers/initialState';
+import {initialState} from '../../reducers/initialState';
 
 class CreateQuote extends Component {
     state = initialState;

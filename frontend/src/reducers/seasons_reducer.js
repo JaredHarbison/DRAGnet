@@ -1,5 +1,5 @@
 import { LOADING_SEASONS, FETCH_SEASONS, UPDATE_SEASON } from '../actions/types'
-import initialState from './initialState'
+import {initialState} from './initialState'
 
 export default function seasons_reducer(state = initialState, action){
     console.log(action)

@@ -1,5 +1,18 @@
-import { UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM } from './types';
+import { UPDATE_QUEEN_TRIVIA, DELETE_QUEEN_TRIVIUM, FETCH_TRIVIA, LOADING_TRIVIA } from './types';
 
+export const fetchTrivia = () => {
+    return (dispatch) => {
+        dispatch({ type: LOADING_TRIVIA })
+        return fetch('/trivia')
+            .then(res => res.json())
+            .then(jsonResponse => {
+                dispatch({
+                    type: FETCH_TRIVIA,
+                    payload: jsonResponse
+                })
+            })
+    }
+}
 export const addTrivia = (trivium) => {
     return (dispatch) => {
         return fetch(`/trivia`, {
