@@ -91,11 +91,7 @@ class QueenEdit extends Component {
                                                 </div>
                                                 <div className="ui divider"></div>
                                                 <div className="header">
-                                                    { 
-                                                    arrayToSentence(this.props.queen.seasons
-                                                        .map (season =>
-                                                    season.season_name)) 
-                                                    }
+
                                                 </div>
                                                 <div className="ui divider"></div>
                                                 <div className="content">
@@ -134,7 +130,7 @@ class QueenEdit extends Component {
                                                                     this.handleEthnicityChange(event)}
                                                                value={this.props.ethnicity}
                                                                type="text"
-                                                               placeholder={this.props.ethnicity ||
+                                                               placeholder={this.props.queen.ethnicity ||
                                                                           "add missing info here"}/>
                                                     </div>
                                                 </div>
@@ -295,7 +291,7 @@ class QueenEdit extends Component {
   }
   
 function mapStateToProps(state, routerProps) {
-    return { id: routerProps.match.params.queenID };
+    return { state, id: routerProps.match.params.queenID };
 };
   
 const mapDispatchToProps = { updateQueen };

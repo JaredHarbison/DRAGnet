@@ -25,7 +25,7 @@ class Api::V1::QueensController < ApiController
     end
 
       def queen_params
-        params.require(:queen).permit(:id, :drag_name, :real_name, :date_of_birth, :hometown, :current_city, 
+        params.require(:queen).permit(:id, :drag_name, :real_name, :date_of_birth, :ethnicity, :hometown, :current_city, 
                                       :instagram, :facebook, :youtube, :website, :imdb, :twitter, :wikipedia,
                                       appearances_attributes: [:season_id],
                                       seasons_attribues: [:season_name], 
