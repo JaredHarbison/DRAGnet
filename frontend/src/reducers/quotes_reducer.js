@@ -6,6 +6,7 @@ export default function quotes_reducer(state = initialState, action) {
     console.log(action)
     switch (action.type) {
 
+
         case LOADING_QUOTES: 
             return Object.assign({}, state, { loading: true })
 
