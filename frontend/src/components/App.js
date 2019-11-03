@@ -7,6 +7,8 @@ import QueensContainer from './queens/QueensContainer'
 import * as actions from '../actions/index'
 import SeasonsContainer from './seasons/SeasonsContainer';
 
+import Landing from './common/Landing';
+
 class App extends Component {
 
     componentDidMount = () => {
@@ -21,7 +23,7 @@ class App extends Component {
             <div className="App">
                 <NavBar dragQueens={this.props.dragQueens}/>
                 <Route exact path="/"
-                       render={() => (<h3>Welcome to DRAGnet!</h3>)} />
+                       render={routerProps => <Landing/>} />
                 <Route path="/queens"
                        render={routerProps => <QueensContainer {...routerProps}
                        dragQueens={this.props.dragQueens} 
