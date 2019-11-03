@@ -6,7 +6,10 @@ import DownVote from '../common/DownVote';
 import {initialState} from '../../reducers/initialState';
 
 class QueenQuote extends Component {
-    state = initialState;
+    constructor(props) {
+        super(props);
+        this.state = { initialState };
+    }
 
     handleSubmit = event => {
         event.preventDefault();
