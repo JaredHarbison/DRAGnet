@@ -9,7 +9,7 @@ gem 'foreman'
 gem 'rails', '~> 5.2.3'
 gem 'i18n'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'active_model_serializers'
 gem 'pg'
 gem 'activeadmin'
